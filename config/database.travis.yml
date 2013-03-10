@@ -1,4 +1,4 @@
 test:
   adapter: postgresql
-  database: myapp_test
+  database: konnyaku_test
   username: postgres
