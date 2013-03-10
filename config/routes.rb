@@ -1,8 +1,17 @@
 Konnyaku::Application.routes.draw do
 
-  get "welcome/index"
-
   root 'welcome#index'
+
+  controller :welcome do
+    get :index
+    get :dashboard
+  end
+
+  controller :sessions do
+    get :sign_in, action: :new
+    post :sessions, action: :create
+    delete :sign_out, action: :destroy
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

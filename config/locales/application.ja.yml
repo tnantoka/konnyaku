@@ -1,0 +1,18 @@
+ja:
+  admin: 管理
+  sign_in: ログイン
+  sign_out: ログアウト
+
+  flash:
+    sessions:
+      sign_in: ログインしました。
+      sign_out: ログアウトしました。
+      invalid: ユーザ名かパスワードが違います。
+      unauthenticated: ログインしてください。
+
+  activemodel:
+    attributes:
+      sign_in_form:
+        username: ユーザ名
+        password: パスワード
+ 

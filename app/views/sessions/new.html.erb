@@ -1,0 +1,25 @@
+<h1>Sessions#new</h1>
+
+<%= form_for @sign_in_form, url: :sessions, html: { class: 'form-horizontal' } do |f| %>
+
+    <div class="control-group">
+      <%= f.label :username, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :username, required: true, autofocus: true %>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <%= f.label :password, class: 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password, required: true %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit t("sign_in"), :class => "btn btn-primary"  %>
+      </div>
+    </div>
+
+ <% end %>

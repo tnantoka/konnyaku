@@ -1,0 +1,18 @@
+en:
+  admin: Admin
+  sign_in: Sign in 
+  sign_out: Sign out
+
+  flash:
+    sessions:
+      sign_in: Signed in successfully.
+      sign_out: Signed out successfully.
+      invalid: Invalid username or password. 
+      unauthenticated: You need to sign in or sign up before continuing.
+
+  activemodel:
+    attributes:
+      sign_in_form:
+        username: Username
+        password: Password
+ 

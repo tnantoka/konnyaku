@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/poltergeist'
+require 'simplecov'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -39,4 +41,23 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.global_fixtures = :all
+
+  config.before(:each) do
+    load "#{Rails.root}/db/seeds.rb" 
+  end
+  config.after(:each) do
+    Timecop.return
+  end
+
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run :focus => true
+  config.run_all_when_everything_filtered = true
+
+  Capybara.javascript_driver = :poltergeist
+
+  SimpleCov.start 'rails' do
+    add_filter "_preview" # mail_preview
+  end
 end

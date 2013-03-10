@@ -44,3 +44,17 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'simplecov', :require => false
+  gem 'timecop'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'fuubar'
+end
+gem 'mail_view'
+
+gem 'settingslogic'
+
+

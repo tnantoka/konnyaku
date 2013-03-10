@@ -24,4 +24,8 @@ Konnyaku::Application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
+
+  I18n.exception_handler = lambda do |exception, locale, key, options|
+    raise exception.message
+  end
 end
