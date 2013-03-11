@@ -1,7 +1,19 @@
 defaults: &defaults
+
+  site:
+    title: Konnyaku demo
+    description: Sandbox blog
+    year: 2013
+  
   admin:
     username: admin
     password: pass
+    name: Admin User
+
+  thanks:
+    Konnyaku: http://tnantoka.github.com/konnyaku/
+    Rails 4 beta1: http://rubyonrails.org/
+    Bootstrap: http://twitter.github.com/bootstrap/
 
 development:
   <<: *defaults

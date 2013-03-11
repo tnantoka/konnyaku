@@ -3,16 +3,41 @@ ja:
   sign_in: ログイン
   sign_out: ログアウト
 
+  categories: カテゴリ
+  list_categories: カテゴリ一覧
+  edit_category: カテゴリを編集
+  new_category: 新規カテゴリ
+
+  back: 戻る
+  sure: 本当によろしいですか？
+  edit: 編集
+  delete: 削除
+
   flash:
     sessions:
       sign_in: ログインしました。
       sign_out: ログアウトしました。
       invalid: ユーザ名かパスワードが違います。
       unauthenticated: ログインしてください。
+    models:
+      update: "%{model}は正常に更新されました。"
+      create: "%{model}は正常に作成されました。"
+      destroy: "%{model}は正常に削除されました。"
 
   activemodel:
     attributes:
       sign_in_form:
         username: ユーザ名
         password: パスワード
- 
+
+  activerecord:
+    models:
+      category: カテゴリ
+    attributes:
+      category:
+        names: カテゴリ名
+        slug: スラッグ
+   
+  en: 英語
+  ja: 日本語
+

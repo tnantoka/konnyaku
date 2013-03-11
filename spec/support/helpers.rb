@@ -5,4 +5,6 @@ def sign_in(username: Settings.admin.username, password: Settings.admin.password
   click_button I18n.t('sign_in')
 end
 
-
+def current_lang
+  current_lang = Lang.find_by(code: I18n.locale)
+end

@@ -4,14 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
+  before_action :load_settings
+  before_action :load_categories
+  before_action :load_langs
 
 private
 
   def default_url_options
     if params[:l].present?
-      return { :l => params[:l] }
+      return { l: params[:l] }
     else
-      return { :l => nil }
+      return { l: nil }
     end
   end
 
@@ -22,7 +25,7 @@ private
       locale = parse_accept_lang
     end
 
-    if Lang.exists?(:code => locale)
+    if Lang.exists?(code: locale)
       I18n.locale = locale
     else
       I18n.locale = I18n.default_locale
@@ -40,8 +43,13 @@ private
   end
   helper_method :current_user
 
+  def current_lang
+    Lang.find_by(code: I18n.locale)
+  end
+  helper_method :current_lang
+
   def user_signed_in?
-    current_user.present?
+    current_user.present? && current_user == Settings.admin.username
   end
   helper_method :user_signed_in?
 
@@ -51,5 +59,18 @@ private
     end    
   end
 
+  def load_settings
+    @site = Settings.site
+    @admin = Settings.admin
+    @thanks = Settings.thanks
+  end
+
+  def load_categories
+    @categories = Category.all
+  end
+
+  def load_langs
+    @langs = Lang.all
+  end
 
 end

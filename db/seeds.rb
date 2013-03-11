@@ -16,3 +16,13 @@ Lang.create([
     code: 'ja'
   },
 ])
+
+Category.create([
+  {
+    slug: 'uncategorized',
+    names: {
+      en: 'Uncategorized',
+      ja: '未分類',
+    }
+  },
+])

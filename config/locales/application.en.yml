@@ -3,12 +3,26 @@ en:
   sign_in: Sign in 
   sign_out: Sign out
 
+  categories: Categories
+  list_categories: Categories
+  edit_category: Edit category
+  new_category: New category
+
+  back: Back
+  sure: Are you sure?
+  edit: Edit
+  delete: Delete
+
   flash:
     sessions:
       sign_in: Signed in successfully.
       sign_out: Signed out successfully.
       invalid: Invalid username or password. 
       unauthenticated: You need to sign in or sign up before continuing.
+    models:
+      update: "%{model} was successfully updated."
+      create: "%{model} was successfully created."
+      destroy: "%{model} was successfully deleted."
 
   activemodel:
     attributes:
@@ -16,3 +30,14 @@ en:
         username: Username
         password: Password
  
+  activerecord:
+    models:
+      category: Category
+    attributes:
+      category:
+        names: Names
+        slug: Slug
+
+  en: English
+  ja: Japanese
+

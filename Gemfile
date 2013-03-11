@@ -40,6 +40,11 @@ gem 'jbuilder', '~> 1.0.1'
 # To use debugger
 # gem 'debugger'
 
+group :development, :production do
+  gem 'pry-rails'
+  gem 'awesome_print'
+end
+
 group :development, :test do
   gem 'rspec-rails'
 end

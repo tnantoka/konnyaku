@@ -13,12 +13,12 @@ describe Lang do
       end
     end
     context 'with invalid code' do
-      it 'raises invalid exception' do
+      it 'raises invalid error' do
         expect { Lang.create!(id: 3, code: 'aa') }.to raise_error
       end
     end
     context 'with duplicated code' do
-      it 'raises invalid exception' do
+      it 'raises invalid error' do
         expect { Lang.create!(id: 3, code: 'ja') }.to raise_error
       end
     end

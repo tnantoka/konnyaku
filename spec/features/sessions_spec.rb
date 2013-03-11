@@ -44,7 +44,7 @@ describe 'Sessions' do
   describe 'sign_in' do
     before(:each) do
       sign_in
-      click_link I18n.t('sign_out')
+      first(:link, I18n.t('sign_out')).click
     end
     it 'allows user to sign out' do
       expect(page).to have_content(I18n.t('flash.sessions.sign_out'))  

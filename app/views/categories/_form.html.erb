@@ -1,0 +1,59 @@
+<%= form_for(@category, html: { class: 'form-horizontal' }) do |f| %>
+
+  <% if @category.errors.any? %>
+    <div class="alert alert-error">
+      <h2><%= t('activerecord.errors.template.header', model: Category, count: @category.errors.count) %></h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :names, class: 'control-label' %>
+      <div class="controls">
+
+        <div class="tabbable tabs-below">
+          <div class="tab-content">
+            <% @langs.each do |lang| %>
+              <div class="tab-pane <%= 'active' if lang == @langs.first %>" id="<%= lang.code %>">
+                <p>
+                <%= text_field_tag "category[names][#{lang.code}]", @category.names[lang.code], required: (lang == @langs.first), autofocus: (lang == @langs.first) %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <ul class="nav nav-pills">
+            <% @langs.each do |lang| %>
+              <li class="<%= 'active' if lang == @langs.first %>">
+                <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="control-group">
+    <%= f.label :slug, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slug %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit class: 'btn btn-primary'  %>
+      <%= link_to t('back'), :categories, class: 'btn'  %>
+    </div>
+  </div>
+
+<% end %>
+
+<%= render 'links' %>
