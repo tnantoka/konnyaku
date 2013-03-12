@@ -61,5 +61,5 @@ end
 gem 'mail_view'
 
 gem 'settingslogic'
-
+gem 'thin'
 
