@@ -13,6 +13,12 @@ describe PostsController do
       get :show, { id: Post.first.slug, l: 'ch' }, valid_session
       expect(response).to redirect_to(post_url(Post.first, l: Lang.primary.code))
     end
+    it 'redirects to primary lang' do
+      I18n::available_locales += [:ch]
+      Lang.create!(code: 'ch')
+      get :edit, { id: Post.first.slug, l: 'ch' }, valid_session
+      expect(response).to redirect_to(edit_post_url(Post.first, l: Lang.primary.code))
+    end
   end
 
   describe 'markdown' do
