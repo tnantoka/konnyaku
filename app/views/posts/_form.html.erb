@@ -53,23 +53,23 @@
 
               <% with_locale(content.lang.code) do %>
                 <div class="control-group">
-                  <%= cf.label :title, :class => "control-label"  %>
+                  <%= cf.label :title, :class => "control-label" %>
                   <div class="controls">
                     <%= cf.text_field :title, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.title'), class: 'span6' %>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <%= cf.label :body, :class => "control-label"  %>
+                  <%= cf.label :body, :class => "control-label" %>
                   <div class="controls">
                     <%= cf.text_area :body, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.body'), class: 'span6 js_post_body', rows: 20 %>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <%= cf.label :tags, :class => "control-label"  %>
+                  <%= cf.label :tags, :class => "control-label" %>
                   <div class="controls">
-                    <%= cf.text_field :tags, placeholder: t('activerecord.attributes.contents.tags'), class: 'span6'  %>
+                    <%= cf.text_field :tags, placeholder: t('activerecord.attributes.contents.tags'), class: 'span6', pattern: '^{.*}$' %>
                   </div>
                 </div>
               <% end %>
