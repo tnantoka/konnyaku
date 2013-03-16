@@ -6,7 +6,6 @@
 </ul>
 
 <div>
-<%#= truncate_html(post.html(current_lang), length: @settings.post.truncate, omission: "... #{link_to(t('continue'), post)}").html_safe %>
 <%= truncate_html(post.html(current_lang), length: @settings.post.truncate).html_safe %>
 </div>
 

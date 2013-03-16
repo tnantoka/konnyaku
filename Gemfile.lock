@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/hgmnz/truncate_html.git
+  revision: 37d65c8489e304267b04f16cd9b9f690b75037ee
+  specs:
+    truncate_html (0.9.2)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 29b7081e2fd570416dfd82186f1ad853d7dc9ded
   specs:
@@ -188,7 +194,6 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    truncate_html (0.9.2)
     turbolinks (1.0.0)
       coffee-rails
     tzinfo (0.3.36)
@@ -224,7 +229,7 @@ DEPENDENCIES
   therubyracer
   thin
   timecop
-  truncate_html
+  truncate_html!
   turbolinks
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
