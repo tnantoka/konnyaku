@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   skip_before_action :enable_sidebar, only: [:new, :create, :edit, :update]
 
   def index
-    @paginated_posts = @posts.page(params[:p]).per(@settings.post.pagination.admin)
+    @paginated_posts = Post.index(current_lang).page(params[:p]).per(@settings.post.pagination.admin)
   end
 
   def show

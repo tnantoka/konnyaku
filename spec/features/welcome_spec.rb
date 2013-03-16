@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe 'Welcome' do
-  after(:each) do
-    I18n.locale = I18n.default_locale
-  end
 
   describe 'locale' do
 

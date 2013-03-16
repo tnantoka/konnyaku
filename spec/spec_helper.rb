@@ -49,6 +49,7 @@ RSpec.configure do |config|
   end
   config.after(:each) do
     Timecop.return
+    I18n.locale = I18n.default_locale
   end
 
   config.treat_symbols_as_metadata_keys_with_true_values = true
