@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require jquery.turbolinks
+//= require google-code-prettify/prettify.js
 //= require_tree .

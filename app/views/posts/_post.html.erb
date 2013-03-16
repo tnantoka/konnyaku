@@ -1,0 +1,12 @@
+<h2><%= link_to(post.title(current_lang), post) %></h2>
+
+<ul class="unstyled inline">
+  <li><%= time_ago(post.created_at) %></li>
+  <li><%= link_to(post.category.name(current_lang), post.category) %></li>
+</ul>
+
+<div>
+<%= truncate_html(post.html(current_lang), length: 40, omission: "... #{link_to(t('continue'), post)}").html_safe %>
+</div>
+
+

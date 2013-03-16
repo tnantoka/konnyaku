@@ -24,7 +24,7 @@ module Konnyaku
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Fix PG::Error: ERROR:  type "hstore" does not exist
+    # Fix PG::Error: ERROR:  type "hstore" does not exist in test
     config.active_record.schema_format = :sql
   end
 end

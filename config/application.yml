@@ -1,22 +1,55 @@
 defaults: &defaults
 
-  site:
-    title: Konnyaku demo
-    description: Sandbox blog
-    year: 2013
-  
-  admin:
-    username: admin
-    password: pass
-    name: Admin User
+  default: &default
+    site: &site
+      title: Konnyaku
+      description: Blogging with multi langs
+      year: 2013
+      dot: ·
+    
+    admin: &admin
+      username: admin
+      password: pass
+      name: Admin User
 
-  thanks:
-    Konnyaku: http://tnantoka.github.com/konnyaku/
-    Rails 4 beta1: http://rubyonrails.org/
-    Bootstrap: http://twitter.github.com/bootstrap/
+    thanks: &thanks
+      Konnyaku: http://tnantoka.github.com/konnyaku/
+      Rails: http://rubyonrails.org/
+      Bootstrap: http://twitter.github.com/bootstrap/
+
+    post: &post
+      pagination:
+        recent: 5
+        admin:  20
+      truncate: 100 
+
+  en: 
+    <<: *default
+
+  ja:
+    <<: *default
+    site:
+      <<: *site
+      description: 多言語ブログエンジン
+      dot: "-"
 
 development:
   <<: *defaults
+
+  en: &en
+    site:
+      <<: *site
+    admin:
+      <<: *admin
+    thanks:
+      <<: *thanks
+
+    post:
+      <<: *post
+      pagination:
+        recent: 2 
+        admin:  2
+      truncate: 30
 
 test:
   <<: *defaults

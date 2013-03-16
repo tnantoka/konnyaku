@@ -12,33 +12,31 @@
     </div>
   <% end %>
 
-  <fieldset>
-    <div class="control-group">
-      <%= f.label :names, class: 'control-label' %>
-      <div class="controls">
+  <div class="control-group">
+    <%= f.label :names, class: 'control-label' %>
+    <div class="controls">
 
-        <div class="tabbable tabs-below">
-          <div class="tab-content">
-            <% @langs.each do |lang| %>
-              <div class="tab-pane <%= 'active' if lang == @langs.first %>" id="<%= lang.code %>">
-                <p>
-                <%= text_field_tag "category[names][#{lang.code}]", @category.names[lang.code], required: (lang == @langs.first), autofocus: (lang == @langs.first) %>
-                </p>
-              </div>
-            <% end %>
-          </div>
-          <ul class="nav nav-pills">
-            <% @langs.each do |lang| %>
-              <li class="<%= 'active' if lang == @langs.first %>">
-                <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
-              </li>
-            <% end %>
-          </ul>
+      <div class="tabbable tabs-below">
+        <div class="tab-content">
+          <% @langs.each do |lang| %>
+            <div class="tab-pane <%= 'active' if lang == Lang.primary %>" id="<%= lang.code %>">
+              <p>
+              <%= text_field_tag "category[names][#{lang.code}]", @category.names[lang.code], required: (lang == @langs.first), autofocus: (lang == @langs.first) %>
+              </p>
+            </div>
+          <% end %>
         </div>
-
+        <ul class="nav nav-pills">
+          <% @langs.each do |lang| %>
+            <li class="<%= 'active' if lang == Lang.primary %>">
+              <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
+            </li>
+          <% end %>
+        </ul>
       </div>
+
     </div>
-  </fieldset>
+  </div>
 
   <div class="control-group">
     <%= f.label :slug, class: 'control-label' %>
@@ -50,7 +48,7 @@
   <div class="control-group">
     <div class="controls">
       <%= f.submit class: 'btn btn-primary'  %>
-      <%= link_to t('back'), :categories, class: 'btn'  %>
+      <%= link_to t(:cancel), :categories, class: 'btn'  %>
     </div>
   </div>
 

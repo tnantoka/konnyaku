@@ -1,4 +1,4 @@
-<% title = t('list_categories') %>
+<% title = t(:list_categories) %>
 <% content_for(:title) { title } %>
 
 <div class="page-header">
@@ -9,20 +9,20 @@
   <tbody>
     <% @categories.each do |category| %>
     <tr>
-      <td><%= link_to "#{category.name(current_lang)} (#{1})", category %></td>
+      <td><%= link_to "#{category.name(current_lang)} (#{category.posts.count})", category %></td>
     
       <% if user_signed_in? %>
       <td>
         <div class="btn-group">
-        <%= link_to edit_category_path(category), class: 'btn btn-small', title: t('edit') do %>
+        <%= link_to edit_category_path(category), class: 'btn btn-small', title: t(:edit) do %>
           <i class="icon-pencil"></i>
-          <%= t('edit') %>
+          <%= t(:edit) %>
         <% end %>
 
         <% if category != @categories.first %>
-        <%= link_to category, method: :delete, data: { confirm: t('sure') }, class: 'btn btn-danger btn-small', title: t('delete') do %>
+        <%= link_to category, method: :delete, data: { confirm: t(:sure) }, class: 'btn btn-danger btn-small', title: t(:delete) do %>
           <i class="icon-remove"></i>
-          <%= t('delete') %>
+          <%= t(:delete) %>
         <% end %>
         <% end %>
 

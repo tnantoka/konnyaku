@@ -1,30 +1,44 @@
 class Category < ActiveRecord::Base
 
-  validates :slug, uniqueness: true, presence: true
-  validates_each :slug do |record, attr, value|
-    record.errors.add(attr, :invalid) if value.present? && value != value.parameterize 
-  end
-  validates_each :names do |record, attr, value|
-    record.errors.add(attr, :invalid) if (value[Lang.first.code] || value[Lang.first.code.to_sym]).blank? 
-  end
+  has_many :posts
 
+  validates :slug, uniqueness: true, presence: true, parameterizable: true
+  validate :name_of_primary_lang_cannot_be_blank
   before_validation :set_slug
+  before_destroy :move_to_default
 
   def name(lang)
     n = self.names[lang.code]
-    n.present? ? n : self.names[Lang.first.code]
+    n.present? ? n : self.names[Lang.primary.code]
   end
 
   def to_param
-    self.slug
+    "#{self.slug}"
+  end
+
+  def self.default
+    self.first
   end
 
 private
 
   def set_slug
     if self.slug.blank?
-      self.slug = (self.names[Lang.first.code] || self.names[Lang.first.code.to_sym]).parameterize 
+      code = Lang.primary.code
+      self.slug = (self.names[code] || self.names[code.to_sym]).parameterize 
     end
   end
- 
+
+  def name_of_primary_lang_cannot_be_blank
+    code = Lang.primary.code
+    self.errors.add(:names, :blank) if (self.names[code] || self.names[code.to_sym]).blank? 
+  end
+
+  def move_to_default
+    self.posts.each do |post|
+      post.category = Category.default 
+      post.save!
+    end
+  end
+
 end

@@ -33,4 +33,9 @@ Konnyaku::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Raise translation missing
+  I18n.exception_handler = -> exception, locale, key, options do
+    raise exception.message
+  end
 end

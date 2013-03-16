@@ -18,6 +18,8 @@ group :assets do
 
   gem 'less-rails'
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+  gem 'jquery-turbolinks'
 end
 
 gem 'jquery-rails'
@@ -55,11 +57,13 @@ group :test do
   gem 'simplecov', :require => false
   gem 'timecop'
   gem 'launchy'
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'
   gem 'fuubar'
 end
-gem 'mail_view'
+#gem 'mail_view'
 
 gem 'settingslogic'
 gem 'thin'
-
+gem 'redcarpet'
+gem 'kaminari'
+gem 'truncate_html', :git => 'git://github.com/hgmnz/truncate_html.git'

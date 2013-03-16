@@ -1,0 +1,122 @@
+<%= form_for(@post, html: { class: 'form' }) do |f| %>
+
+  <% if @post.errors.any? %>
+    <div class="alert alert-error">
+      <h2><%= t('activerecord.errors.template.header', model: Post, count: @post.errors.count) %></h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="span4">
+      <ul class="nav nav-pills">
+        <% @post.langs.each do |lang| %>
+          <li class="<%= 'active' if lang == Lang.primary %>">
+            <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="span4">
+      <div class="control-group">
+        <%= f.label :category_id, :class => "control-label" %>
+        <div class="controls">
+          <%= f.select :category_id, Category.all.map { |c| [c.name(current_lang), c.id] } %>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="control-group">
+        <%= f.label :slug, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :slug, placeholder: t('activerecord.attributes.post.slug') %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+
+      <div class="tab-content">
+
+        <% @post.contents.each do |content| %>
+          <div class="tab-pane <%= 'active' if content.lang == Lang.primary %>" id="<%= content.lang.code %>">
+            <%= f.fields_for :contents, content do |cf| %>  
+
+              <%= cf.hidden_field :lang_id %>
+
+              <% with_locale(content.lang.code) do %>
+                <div class="control-group">
+                  <%= cf.label :title, :class => "control-label"  %>
+                  <div class="controls">
+                    <%= cf.text_field :title, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.title'), class: 'span6' %>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <%= cf.label :body, :class => "control-label"  %>
+                  <div class="controls">
+                    <%= cf.text_area :body, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.body'), class: 'span6 js_post_body', rows: 20 %>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <%= cf.label :tags, :class => "control-label"  %>
+                  <div class="controls">
+                    <%= cf.text_field :tags, placeholder: t('activerecord.attributes.contents.tags'), class: 'span6'  %>
+                  </div>
+                </div>
+              <% end %>
+
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <div class="pull-right">
+            <%= link_to t(:preview), '#', class: 'btn js_post_preview'  %>
+            <label class="checkbox">
+              <input type="checkbox" class="js_post_realtime"> <%= t('realtime') %>
+            </label>
+          </div>
+          <%= f.submit class: 'btn btn-primary'  %>
+          <%= link_to t(:cancel), (@post.new_record? ? :posts : @post), class: 'btn'  %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="span6">
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#rendered" data-toggle="tab">rendered</a></li>
+          <li><a href="#source" data-toggle="tab">source</a></li>
+        </ul>
+        <div class="tab-content">
+
+          <div class="tab-pane active" id="rendered">
+            <div class="post_rendered js_post_rendered"></div>
+          </div>
+
+          <div class="tab-pane" id="source">
+            <pre class="post_source js_post_source"></pre>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<% end %>
+
+<%= render 'links' %>

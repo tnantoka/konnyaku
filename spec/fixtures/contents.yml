@@ -1,0 +1,14 @@
+content1:
+  post: post1
+  lang_id: 1
+  title: 'Title'
+  body: 'Body'
+  html: 'Body'
+  tags: '{}'
+content2:
+  post: post1
+  lang_id: 2
+  title: ''
+  body: ''
+  html: ''
+  tags: '{}'

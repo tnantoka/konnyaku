@@ -75,6 +75,42 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
+-- Name: contents; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE contents (
+    id integer NOT NULL,
+    post_id integer,
+    lang_id integer,
+    title character varying(255),
+    body text,
+    html text,
+    tags character varying(255)[],
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: contents_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE contents_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: contents_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE contents_id_seq OWNED BY contents.id;
+
+
+--
 -- Name: langs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -106,6 +142,38 @@ ALTER SEQUENCE langs_id_seq OWNED BY langs.id;
 
 
 --
+-- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE posts (
+    id integer NOT NULL,
+    category_id integer,
+    slug character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -125,7 +193,21 @@ ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY contents ALTER COLUMN id SET DEFAULT nextval('contents_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY langs ALTER COLUMN id SET DEFAULT nextval('langs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
 
 
 --
@@ -137,11 +219,48 @@ ALTER TABLE ONLY categories
 
 
 --
+-- Name: contents_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY contents
+    ADD CONSTRAINT contents_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: langs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY langs
     ADD CONSTRAINT langs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_contents_on_lang_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_contents_on_lang_id ON contents USING btree (lang_id);
+
+
+--
+-- Name: index_contents_on_post_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_contents_on_post_id ON contents USING btree (post_id);
+
+
+--
+-- Name: index_posts_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_posts_on_category_id ON posts USING btree (category_id);
 
 
 --
@@ -162,3 +281,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130310090932');
 INSERT INTO schema_migrations (version) VALUES ('20130311025623');
 
 INSERT INTO schema_migrations (version) VALUES ('20130311025624');
+
+INSERT INTO schema_migrations (version) VALUES ('20130312142546');
+
+INSERT INTO schema_migrations (version) VALUES ('20130312142748');

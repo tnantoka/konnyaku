@@ -2,6 +2,6 @@ language: ruby
 rvm:
   - "2.0.0"
 before_script:
-  - cp config/database.travis.yml config/database.yml
+  - cp config/.database.travis.yml config/database.yml
   - psql -c 'create database konnyaku_test;' -U postgres
 script: RAILS_ENV=test bundle exec rake --trace db:migrate spec

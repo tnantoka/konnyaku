@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :load_settings
   before_action :load_categories
   before_action :load_langs
+  before_action :load_posts
+  before_action :enable_sidebar
 
 private
 
@@ -49,7 +51,7 @@ private
   helper_method :current_lang
 
   def user_signed_in?
-    current_user.present? && current_user == Settings.admin.username
+    current_user.present? && current_user == @settings.admin.username
   end
   helper_method :user_signed_in?
 
@@ -60,9 +62,7 @@ private
   end
 
   def load_settings
-    @site = Settings.site
-    @admin = Settings.admin
-    @thanks = Settings.thanks
+    @settings = Settings.try(current_lang.code) || Settings.get(Lang.primary.code)
   end
 
   def load_categories
@@ -73,4 +73,22 @@ private
     @langs = Lang.all
   end
 
+  def load_posts
+    @posts = Post.index(current_lang)
+    @recent_posts = @posts.limit(@settings.post.pagination.recent)
+  end
+
+  def enable_sidebar 
+    @has_sidebar = true
+  end
+
+  def with_locale(locale, &block)
+    original_locale = I18n.locale
+    I18n.locale = locale
+    result = yield
+    I18n.locale = original_locale
+    return result
+  end
+  helper_method :with_locale
+ 
 end

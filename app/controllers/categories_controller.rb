@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
     end
 
     @category.destroy
-    redirect_to categories_url, notice: I18n.t('flash.models.destroy', model: Category.model_name.human) 
+    redirect_to :categories, notice: I18n.t('flash.models.destroy', model: Category.model_name.human) 
   end
 
 private

@@ -2,17 +2,31 @@ en:
   admin: Admin
   sign_in: Sign in 
   sign_out: Sign out
+  langs: Langs
+  continue: Continue reading
+
+  cancel: Cancel
+  sure: Are you sure?
+  edit: Edit
+  delete: Delete
+  loading: Loading
 
   categories: Categories
   list_categories: Categories
   edit_category: Edit category
   new_category: New category
 
-  back: Back
-  sure: Are you sure?
-  edit: Edit
-  delete: Delete
+  posts: Posts
+  list_posts: Posts
+  new_post: New post
+  edit_post: Edit post
+  preview: Preview
+  realtime: Realtime
 
+  created_at: Created at
+  updated_at: Updated at
+  ago: " ago"
+  
   flash:
     sessions:
       sign_in: Signed in successfully.
@@ -33,11 +47,21 @@ en:
   activerecord:
     models:
       category: Category
+      post: Post
+      content: Content
     attributes:
       category:
         names: Names
         slug: Slug
-
+      post:
+        category_id: Category
+        slug: Slug
+        contents: Contents
+      contents:
+        title: Title
+        body: Body
+        tags: Tags
+ 
   en: English
   ja: Japanese
 

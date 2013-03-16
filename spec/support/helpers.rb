@@ -1,4 +1,4 @@
-def sign_in(username: Settings.admin.username, password: Settings.admin.password)
+def sign_in(username: Settings.get(current_lang.code).admin.username, password: Settings.get(current_lang.code).admin.password)
   visit sign_in_path
   fill_in 'sign_in_form[username]', with: username 
   fill_in 'sign_in_form[password]', with: password 

@@ -1,2 +1,9 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1 class="semantics"><%= site_name %></h1>
+
+<%= render @paginated_posts %>
+
+<%= page_entries_info(@paginated_posts, :entry_name => Post.model_name.human) %>
+<%= paginate @paginated_posts, :param_name => :p %>
+
+
+

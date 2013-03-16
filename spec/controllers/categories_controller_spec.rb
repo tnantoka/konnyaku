@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CategoriesController do
 
   def valid_session
-    { username: Settings.admin.username }
+    { username: Settings.get(current_lang.code).admin.username }
   end
 
   describe 'destroy' do

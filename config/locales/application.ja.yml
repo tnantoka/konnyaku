@@ -2,16 +2,30 @@ ja:
   admin: 管理
   sign_in: ログイン
   sign_out: ログアウト
+  langs: 言語
+  continue: 続きを読む
+
+  cancel: キャンセル
+  sure: 本当によろしいですか？
+  edit: 編集
+  delete: 削除
+  loading: 読み込み中
 
   categories: カテゴリ
   list_categories: カテゴリ一覧
   edit_category: カテゴリを編集
   new_category: 新規カテゴリ
 
-  back: 戻る
-  sure: 本当によろしいですか？
-  edit: 編集
-  delete: 削除
+  posts: 投稿一覧
+  list_posts: 投稿一覧
+  new_post: 新規投稿
+  edit_post: 投稿を編集
+  preview: プレビュー
+  realtime: リアルタイム
+
+  created_at: 作成日時
+  updated_at: 更新日時
+  ago: 前
 
   flash:
     sessions:
@@ -33,11 +47,21 @@ ja:
   activerecord:
     models:
       category: カテゴリ
+      post: 投稿
+      content: 内容
     attributes:
       category:
         names: カテゴリ名
         slug: スラッグ
-   
+      post:
+        category_id: カテゴリ
+        slug: スラッグ
+        contents: コンテンツ
+      contents:
+        title: タイトル
+        body: 本文
+        tags: タグ
+     
   en: 英語
   ja: 日本語
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? "#{yield(:title)} · #{@site.title}" : "#{@site.title} · #{@site.description} " %></title>
+    <title><%= content_for?(:title) ? "#{yield(:title)} #{@settings.site.dot} #{@settings.site.title}" : site_name(plain: true) %></title>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -28,9 +28,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%= link_to @site.title, :root, class: 'brand' %>
+          <%= link_to :root, class: 'brand' do %>
+            <%= site_name %>
+          <% end %>
           <div class="container nav-collapse">
             <ul class="nav pull-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t(:langs) %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <% @langs.each do |lang| %>
+                    <li><%= link_to t(lang.code), url_for(params.merge(l: lang.code)) %></li>
+                  <% end %>
+                </ul>
+              </li>
+
               <% if user_signed_in? %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -41,6 +55,7 @@
                   <%= render 'shared/admin_menu' %>
                 </ul>
               </li>
+              <li><%= link_to :new_post do %><i class="icon-plus"></i><% end %></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
@@ -49,42 +64,29 @@
     </div>
 
     <div class="container">
+
+      <% if @has_sidebar.present? %>
         <div class="row">
           <div class="span9">
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
-
-          <div class="span3">
-            <div class="well">
-              <ul class="nav nav-list">
-                <li class="nav-header"><%= t('categories') %></li>
-                <li class="divider"></li>
-
-                <% @categories.each do |category| %>
-                <li><%= link_to category.name(current_lang), category %></li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="well sidebar-nav">
-              <ul class="nav nav-list">
-                <li class="nav-header"><%= t('admin') %></li>
-                <li class="divider"></li>
-
-                <% if user_signed_in? %>
-                  <%= render 'shared/admin_menu' %>
-                <% else %>
-                  <li><%= link_to t('sign_in'), :sign_in %></li>
-                <% end %>
-              </ul>
-            </div>
+          <div class="span3 sidebar">
+            <%= render 'shared/aside' %>
           </div>
         </div>
+      <% else %>
+        <%= bootstrap_flash %>
+        <%= yield %>
+        <div class="row bottombar">
+          <%= render 'shared/aside' %>
+        </div>
+      <% end %>
 
       <footer>
         <ul class="inline">
-          <li><small>&copy; <%= @site.year %> <%= link_to @site.title, :root %></small></li>
-          <% @thanks.each do |text, href| %> 
+          <li><small>&copy; <%= @settings.site.year %> <%= link_to @settings.site.title, :root %></small></li>
+          <% @settings.thanks.each do |text, href| %> 
             <li><small><%= link_to text, href %></small></li>
           <% end %>
         </ul>

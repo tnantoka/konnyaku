@@ -1,0 +1,32 @@
+<% title = @post.title(current_lang) %>
+<% content_for(:title) { title } %>
+
+<ul class="nav nav-pills">
+  <%= lang_list(@post, labeled: false) %>
+</ul>
+
+<div class="page-header">
+  <h1><%= link_to(title, @post) %></h1>
+</div>
+
+<div class="row">
+  <div class="span3">
+    <%= link_to(@post.category.name(current_lang), @post.category) %>
+  </div>
+  <div class="span3">
+    <%= t(:created_at) %> 
+    <%= time_ago(@post.created_at) %>
+  </div>
+  <div class="span3">
+    <%= t(:updated_at) %>
+    <%= time_ago(@post.updated_at) %>
+  </div>
+</div>
+
+<ul class="unstyled inline">
+  <%= tag_list(@post) %>
+</ul>
+
+<%= @post.html(current_lang).html_safe %>
+
+<%= render 'links' %>

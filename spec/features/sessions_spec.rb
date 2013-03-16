@@ -15,7 +15,7 @@ describe 'Sessions' do
         expect(current_path).to eq(dashboard_path)
       end
       it 'shows username' do
-        expect(page).to have_content(Settings.admin.username)  
+        expect(page).to have_content(Settings.get(current_lang.code).admin.username)  
       end
     end
 
@@ -41,7 +41,7 @@ describe 'Sessions' do
     end
   end
 
-  describe 'sign_in' do
+  describe 'sign_out' do
     before(:each) do
       sign_in
       first(:link, I18n.t('sign_out')).click

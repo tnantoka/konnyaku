@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/hgmnz/truncate_html.git
+  revision: 37d65c8489e304267b04f16cd9b9f690b75037ee
+  specs:
+    truncate_html (0.9.2)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 29b7081e2fd570416dfd82186f1ad853d7dc9ded
   specs:
@@ -63,11 +69,6 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    factory_girl (4.2.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
-      railties (>= 3.0.0)
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
     ffi (1.4.0)
@@ -83,7 +84,12 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (0.2.1)
+      rails (>= 3.1.0)
     json (1.7.7)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.2.0)
       addressable (~> 2.3)
     less (2.3.1)
@@ -96,8 +102,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mail_view (1.0.3)
-      tilt
     method_source (0.8.1)
     mime-types (1.21)
     minitest (4.6.2)
@@ -135,6 +139,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (2.2.2)
     ref (1.0.2)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
@@ -206,23 +211,25 @@ DEPENDENCIES
   awesome_print
   capybara
   coffee-rails (~> 4.0.0.beta1)
-  factory_girl_rails
   fuubar
   jbuilder (~> 1.0.1)
   jquery-rails
+  jquery-turbolinks
+  kaminari
   launchy
   less-rails
-  mail_view
   pg
   poltergeist
   pry-rails
   rails (= 4.0.0.beta1)
+  redcarpet
   rspec-rails
   settingslogic
   simplecov
   therubyracer
   thin
   timecop
+  truncate_html!
   turbolinks
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

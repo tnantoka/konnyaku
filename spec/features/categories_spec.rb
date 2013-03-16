@@ -28,11 +28,11 @@ describe 'Categories' do
  
     describe 'show' do
       before(:each) do
-        click_link(Category.first.name(current_lang))
+        first(:link, Category.first.name(current_lang)).click()
       end
       it 'shows category name' do  
         within 'h1' do
-          expect(page).to_not have_content(I18n.t('new_category'))
+          expect(page).to have_content(Category.first.name(current_lang))
         end
       end
     end
@@ -68,14 +68,14 @@ describe 'Categories' do
       context 'with valid attributes' do
         it 'creates new category' do
           create_new_category
-          expect(Category.last.names['en']).to have_content('Test')
+          expect(Category.last.names['en']).to eq('Test')
         end
       end
-      context 'with invalid attributes' do
+      context 'with blank attributes' do
         it 'disallow create new category' do
           click_link(I18n.t('new_category'))
           click_button('Create') 
-          expect(page).to have_content('invalid')
+          expect(page).to have_content('blank')
         end
       end
     end
@@ -84,17 +84,17 @@ describe 'Categories' do
       context 'with valid attributes' do
         it 'updates category' do
           first(:link, I18n.t('edit')).click
-          fill_in 'category[names][en]', with: 'Test'
+          fill_in 'category[names][en]', with: 'Edit'
           click_button('Update') 
-          expect(Category.first.names['en']).to have_content('Test')
+          expect(Category.first.names['en']).to eq('Edit')
         end
       end
-      context 'with invalid attributes' do
+      context 'with blank attributes' do
         it 'disallow update category' do
           first(:link, I18n.t('edit')).click
           fill_in 'category[names][en]', with: ''
           click_button('Update') 
-          expect(page).to have_content('invalid')
+          expect(page).to have_content('blank')
         end
       end
     end
@@ -103,7 +103,7 @@ describe 'Categories' do
       it 'deletes category' do
         create_new_category
         first(:link, I18n.t('delete')).click
-        expect(Category.last.names['en']).to have_content('Uncategorized')
+        expect(Category.last.names['en']).to eq('Uncategorized')
       end
     end
 

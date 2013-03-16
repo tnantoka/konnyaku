@@ -19,6 +19,7 @@ Lang.create([
 
 Category.create([
   {
+    id: 1,
     slug: 'uncategorized',
     names: {
       en: 'Uncategorized',
@@ -26,3 +27,8 @@ Category.create([
     }
   },
 ])
+
+# Fix PG::Error: ERROR:  duplicate key value violates unique constraint in test
+ActiveRecord::Base.connection.execute "SELECT setval('langs_id_seq', (SELECT max(id) FROM langs));"
+ActiveRecord::Base.connection.execute "SELECT setval('categories_id_seq', (SELECT max(id) FROM categories));"
+
