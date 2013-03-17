@@ -5,6 +5,7 @@ Konnyaku::Application.routes.draw do
   controller :welcome do
     get :index
     get :dashboard
+    get :search
   end
 
   controller :sessions do

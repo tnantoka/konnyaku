@@ -15,7 +15,7 @@
   <div class="row">
     <div class="span4">
       <ul class="nav nav-pills">
-        <% @post.langs.each do |lang| %>
+        <% @langs.each do |lang| %>
           <li class="<%= 'active' if lang == current_lang %>">
             <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
           </li>

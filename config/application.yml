@@ -21,6 +21,7 @@ defaults: &defaults
       pagination:
         recent: 5
         admin:  20
+        search: 10
       truncate: 100 
 
   en: 
@@ -49,6 +50,7 @@ development:
       pagination:
         recent: 2 
         admin:  2
+        search: 2
       truncate: 30
 
 test:

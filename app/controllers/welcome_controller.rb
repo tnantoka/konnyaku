@@ -9,4 +9,8 @@ class WelcomeController < ApplicationController
   def dashboard
   end
 
+  def search
+    @paginated_posts = Post.search(@search_form.q, current_lang).page(params[:p]).per(@settings.post.pagination.search)
+  end
+
 end

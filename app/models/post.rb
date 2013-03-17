@@ -49,6 +49,38 @@ class Post < ActiveRecord::Base
     self.slug
   end
 
+  def self.search(query, lang)
+
+    query = query.to_s
+    query.strip!
+
+    return Post.none if query.blank?
+
+    queries = query.split(/[\s　]+/)
+
+    post_table = Post.arel_table
+    content_table = Content.arel_table
+
+    conds = nil
+
+    queries.each do |q|
+      pattern = "%#{q}%"
+      cond = [post_table[:slug].matches(pattern)]
+      cond << content_table[:title].matches(pattern)
+      cond << content_table[:body].matches(pattern)
+      cond.each do |c|
+        if conds.present?
+          conds = conds.or(c)
+        else
+          conds = c
+        end 
+      end
+    end
+
+    posts = self.index(lang).where(conds).joins(:contents).uniq
+    return posts
+  end
+
 private
 
   def current_or_primary(lang, attr)

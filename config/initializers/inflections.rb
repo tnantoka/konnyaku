@@ -14,3 +14,9 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+# Fix 日本語s
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.plural /([^!-~])$/, '\1'
+  inflect.singular /([^!-~])$/, '\1'
+end

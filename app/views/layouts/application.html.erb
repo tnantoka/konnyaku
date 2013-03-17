@@ -32,6 +32,11 @@
             <%= site_name %>
           <% end %>
           <div class="container nav-collapse">
+
+            <%= form_for @search_form, url: :search, html: { method: :get, class: "navbar-search" } do |f| %>
+              <%= f.search_field :q, class: 'search-query span2', :placeholder => t('search') %>
+            <% end %>
+
             <ul class="nav pull-right">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

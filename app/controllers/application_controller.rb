@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
+  before_action :set_search_form
   before_action :load_settings
   before_action :load_categories
   before_action :load_langs
@@ -61,6 +62,10 @@ private
     end    
   end
 
+  def set_search_form
+    @search_form = SearchForm.new(params[:search_form])
+  end
+    
   def load_settings
     @settings = Settings.try(current_lang.code) || Settings.get(Lang.primary.code)
   end
