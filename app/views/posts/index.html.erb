@@ -5,7 +5,7 @@
   <h1><%= title %></h1>
 </div>
 
-<table class="table-condensed <%= 'table table-striped' if user_signed_in? %>">
+<table class="table-condensed <%= 'table table-striped table-hover' if user_signed_in? %>">
   <tbody>
     <% @paginated_posts.each do |post| %>
     <tr>
@@ -41,6 +41,6 @@
 
 <%= render 'links' %>
 
-<%= page_entries_info(@paginated_posts, :entry_name => Post.model_name.human) %>
-<%= paginate @paginated_posts, :param_name => :p %>
+<%= page_entries_info(@paginated_posts, entry_name: Post.model_name.human) %>
+<%= paginate @paginated_posts, param_name: :p %>
 

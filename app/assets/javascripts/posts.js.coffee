@@ -25,9 +25,10 @@ $(document).on('change', '.js_post_realtime', (e) ->
 
 previewPost = ->
   $body = $('.js_post_body:visible')
-  $.post('/posts/markdown', "body=#{encodeURIComponent($body.val())}", (data) ->
-    $('.js_post_rendered').html(data).height($body.height())
-    $('.js_post_source').text(data).height($body.height())
-    prettyPrint()
-  )
+  if $body.length
+    $.post('/posts/markdown', "body=#{encodeURIComponent($body.val())}", (data) ->
+      $('.js_post_rendered').html(data).height($body.height())
+      $('.js_post_source').text(data).height($body.height())
+      prettyPrint()
+    )
 

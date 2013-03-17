@@ -15,20 +15,20 @@
   <div class="control-group">
     <%= f.label :author, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :author %>
+      <%= f.text_field :author, required: true %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :body, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_area :body %>
+      <%= f.text_area :body, required: true %>
     </div>
   </div>
 
   <div class="control-group">
     <div class="controls">
-      <%= f.submit class: 'btn btn-primary'  %>
+      <%= f.submit class: 'btn btn-primary' %>
     </div>
   </div>
 

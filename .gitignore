@@ -27,4 +27,4 @@ public/assets/*
 !public/assets/fontawesome-webfont.*
 config/database.yml
 coverage
-
+public/uploads/*

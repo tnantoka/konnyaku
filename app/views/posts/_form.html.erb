@@ -24,7 +24,7 @@
     </div>
     <div class="span4">
       <div class="control-group">
-        <%= f.label :category_id, :class => "control-label" %>
+        <%= f.label :category_id, class: 'control-label' %>
         <div class="controls">
           <%= f.select :category_id, Category.all.map { |c| [c.name(current_lang), c.id] } %>
         </div>
@@ -53,21 +53,21 @@
 
               <% with_locale(content.lang.code) do %>
                 <div class="control-group">
-                  <%= cf.label :title, :class => "control-label" %>
+                  <%= cf.label :title, class: 'control-label' %>
                   <div class="controls">
                     <%= cf.text_field :title, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.title'), class: 'span6' %>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <%= cf.label :body, :class => "control-label" %>
+                  <%= cf.label :body, class: 'control-label' %>
                   <div class="controls">
                     <%= cf.text_area :body, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.body'), class: 'span6 js_post_body', rows: 20 %>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <%= cf.label :tags, :class => "control-label" %>
+                  <%= cf.label :tags, class: 'control-label' %>
                   <div class="controls">
                     <%= cf.text_field :tags, placeholder: t('activerecord.attributes.contents.tags'), class: 'span6', pattern: '^{.*}$' %>
                   </div>
@@ -83,13 +83,13 @@
       <div class="control-group">
         <div class="controls">
           <div class="pull-right">
-            <%= link_to t(:preview), '#', class: 'btn js_post_preview'  %>
+            <%= link_to t(:preview), '#', class: 'btn js_post_preview' %>
             <label class="checkbox">
               <input type="checkbox" class="js_post_realtime"> <%= t('realtime') %>
             </label>
           </div>
-          <%= f.submit class: 'btn btn-primary'  %>
-          <%= link_to t(:cancel), (@post.new_record? ? :posts : @post), class: 'btn'  %>
+          <%= f.submit class: 'btn btn-primary' %>
+          <%= link_to t(:cancel), (@post.new_record? ? :posts : @post), class: 'btn' %>
         </div>
       </div>
 

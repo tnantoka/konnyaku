@@ -21,6 +21,9 @@ Konnyaku::Application.routes.draw do
   end
   resources :tags, only: [:index, :show]
 
+  # Cannot use :uploads because public/uploads exists
+  resources :files, only: [:index, :create, :destroy], controller: :uploads, as: :uploads
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,64 @@
+<% title = t(:list_uploads) %>
+<% content_for(:title) { title } %>
+
+<div class="page-header">
+  <h1><%= title %></h1>
+</div>
+
+<table class="table-condensed <%= 'table table-striped table-hover' if user_signed_in? %>">
+  <tbody>
+    <% @uploads.each do |upload| %>
+    <tr>
+      <td>
+        <% if upload.is_image? %>
+          <%= link_to upload.src do %>
+            <%= image_tag upload.src %>
+          <% end %>
+        <% else %>
+          &nbsp;
+        <% end %>
+      </td>
+      <td><%= link_to upload.filename, upload.src %></td>
+    
+      <% if user_signed_in? %>
+      <td>
+        <%= link_to upload, method: :delete, data: { confirm: t(:sure) }, class: 'btn btn-danger btn-small', title: t(:delete) do %>
+          <i class="icon-remove"></i>
+          <%= t(:delete) %>
+        <% end %>
+      </td>
+      <% end %>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= page_entries_info(@uploads, entry_name: Upload.model_name.human) %>
+<%= paginate @uploads, param_name: :p %>
+
+<% if user_signed_in? %>
+  <%= form_for(@upload, html: { class: 'form-vertical' }) do |f| %>
+
+    <% if @upload.errors.any? %>
+      <div class="alert alert-error">
+        <h2><%= t('activerecord.errors.template.header', model: Upload.model_name.human, count: @upload.errors.count) %></h2>
+
+        <ul>
+        <% @upload.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :file, class: 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :file %>
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

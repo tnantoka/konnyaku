@@ -5,7 +5,7 @@
   <h1><%= title %></h1>
 </div>
 
-<table class="table-condensed <%= 'table table-striped' if user_signed_in? %>">
+<table class="table-condensed <%= 'table table-striped table-hover' if user_signed_in? %>">
   <tbody>
     <% @categories.each do |category| %>
     <tr>

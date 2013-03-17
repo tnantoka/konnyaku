@@ -6,7 +6,9 @@ en:
   continue: Continue reading
   search: Search
 
-  tags: Tags
+  created_at: Created at
+  updated_at: Updated at
+  ago: " ago"
 
   cancel: Cancel
   sure: Are you sure?
@@ -26,12 +28,13 @@ en:
   preview: Preview
   realtime: Realtime
 
+  tags: Tags
+
   comments: Comments
 
-  created_at: Created at
-  updated_at: Updated at
-  ago: " ago"
-  
+  uploads: Uploads
+  list_uploads: Uploads
+
   flash:
     sessions:
       sign_in: Signed in successfully.
@@ -55,6 +58,7 @@ en:
       post: Post
       content: Content
       comment: Comment
+      upload: Upload
     attributes:
       category:
         names: Names
@@ -71,6 +75,8 @@ en:
       comment:
         author: Author
         body: Body
+      upload:
+        file: File
         
  
   en: English

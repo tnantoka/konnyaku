@@ -26,7 +26,7 @@ private
   end
 
   def set_comment
-    @comment = @post.comments.find_by!(id: params[:id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def comment_params

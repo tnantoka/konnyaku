@@ -6,7 +6,9 @@ ja:
   continue: 続きを読む
   search: 検索
 
-  tags: タグ
+  created_at: 作成日時
+  updated_at: 更新日時
+  ago: 前
 
   cancel: キャンセル
   sure: 本当によろしいですか？
@@ -26,11 +28,12 @@ ja:
   preview: プレビュー
   realtime: リアルタイム
 
+  tags: タグ
+
   comments: コメント
 
-  created_at: 作成日時
-  updated_at: 更新日時
-  ago: 前
+  uploads: アップロード
+  list_uploads: アップロード
 
   flash:
     sessions:
@@ -55,6 +58,7 @@ ja:
       post: 投稿
       content: 内容
       comment: コメント
+      upload: アップロード
     attributes:
       category:
         names: カテゴリ名
@@ -70,7 +74,9 @@ ja:
       comment:
         author: 投稿者
         body: 本文
-  
+      upload:
+        file: ファイル
+   
   en: 英語
   ja: 日本語
 

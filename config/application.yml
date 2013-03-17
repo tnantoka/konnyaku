@@ -53,6 +53,9 @@ development:
         search: 2
       truncate: 30
 
+  ja: 
+    <<: *en
+
 test:
   <<: *defaults
 
