@@ -1,0 +1,11 @@
+<% title = "#{params[:id]} #{@settings.site.dot} #{t(:tags)}" %>
+<% content_for(:title) { title } %>
+
+<div class="page-header">
+  <h1><%= title %></h1>
+</div>
+
+<%= render @paginated_posts %>
+
+<%= page_entries_info(@paginated_posts, :entry_name => Post.model_name.human) %>
+<%= paginate @paginated_posts, :param_name => :p %>

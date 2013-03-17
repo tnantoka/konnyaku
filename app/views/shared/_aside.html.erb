@@ -7,11 +7,27 @@
       <li class="divider"></li>
 
       <% @categories.each do |category| %>
-      <li><%= link_to category.name(current_lang), category %></li>
+      <li><%= link_to "#{category.name(current_lang)} (#{category.posts.count})", category %></li>
       <% end %>
     </ul>
   </div>
 </div>
+
+<div class="span3">
+  <div class="well">
+    <ul class="nav nav-list">
+      <li class="nav-header">
+        <%= link_to(t(:tags), :tags) %>
+      </li>
+      <li class="divider"></li>
+
+      <% @top_tags.each do |tag| %>
+      <li><%= link_to "#{tag[:name]} (#{tag[:count]})", tag_path(tag[:name]) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 
 <div class="span3">
   <div class="well">

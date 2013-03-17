@@ -81,6 +81,14 @@ class Post < ActiveRecord::Base
     return posts
   end
 
+  def self.tagged(name, lang)
+    name = name.to_s
+    name.strip!
+    return Post.none if name.blank?
+    posts = Post.index(lang).where("contents.tags && ?", "{#{name}}") 
+    return posts
+  end
+
 private
 
   def current_or_primary(lang, attr)
@@ -96,6 +104,5 @@ private
    def contents_cannot_be_blank
     self.errors.add(:contents, :blank) if self.contents.blank?
   end
-
 
 end

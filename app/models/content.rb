@@ -34,5 +34,17 @@ class Content < ActiveRecord::Base
     self.html = markdown.render(self.body)
   end
 
+  def self.tags(lang)
+    tags = {}
+    tags.default = 0
+    self.where(lang_id: lang.id)
+      .where.not(tags: '{}')
+      .pluck(:tags)
+      .each { |names| names.each { |name| tags[name] += 1 } }
+    tags = tags.map { |name, count| { name: name, count: count } }
+      .sort_by { |tag| tag[:count] }
+      .reverse
+    return tags
+  end
 
 end

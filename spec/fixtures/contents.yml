@@ -4,7 +4,7 @@ content1:
   title: 'Title'
   body: 'Body'
   html: 'Body'
-  tags: '{}'
+  tags: '{tag}'
 content2:
   post: post1
   lang_id: 2

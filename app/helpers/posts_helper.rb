@@ -13,7 +13,7 @@ module PostsHelper
     list = ''
     post.tags(current_lang).each do |tag|
       label = "<span class=\"label\">#{tag}</span>".html_safe
-      list << "<li>#{link_to(label, '#')}</li>"
+      list << "<li>#{link_to(label, tag_path(tag))}</li>"
     end
     return list.html_safe
   end
@@ -21,6 +21,5 @@ module PostsHelper
   def time_ago(date)
     return "<span title=\"#{l(date)}\">#{time_ago_in_words(date)}#{t(:ago)}</span>".html_safe
   end
-
 
 end
