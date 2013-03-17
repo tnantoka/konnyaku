@@ -1,0 +1,16 @@
+<dt>
+  <%= comment.author %>
+  <small><%= time_ago(comment.created_at) %></small>
+</dt>
+<dd>
+  <%= comment.html.html_safe %>
+
+  <% if user_signed_in? %>
+    <%= link_to [comment.post, comment], method: :delete, data: { confirm: t(:sure) }, class: 'btn btn-danger btn-small', title: t(:delete) do %>
+      <i class="icon-remove"></i>
+      <%= t(:delete) %>
+    <% end %>
+  <% end %>
+
+</dd>
+

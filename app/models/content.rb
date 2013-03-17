@@ -22,7 +22,6 @@ class Content < ActiveRecord::Base
     return if self.body.blank?
 
     renderer = HTMLWithPrettify.new(
-      safe_links_only: true,
       with_toc_data: true,
       link_attributes: { target: '_blank' }
     )

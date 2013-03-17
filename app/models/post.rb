@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :category
   has_many :contents, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   accepts_nested_attributes_for :contents
 

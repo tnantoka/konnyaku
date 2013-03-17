@@ -26,6 +26,8 @@ en:
   preview: Preview
   realtime: Realtime
 
+  comments: Comments
+
   created_at: Created at
   updated_at: Updated at
   ago: " ago"
@@ -52,6 +54,7 @@ en:
       category: Category
       post: Post
       content: Content
+      comment: Comment
     attributes:
       category:
         names: Names
@@ -60,10 +63,15 @@ en:
         category_id: Category
         slug: Slug
         contents: Contents
+        comment: Comment
       contents:
         title: Title
         body: Body
         tags: Tags
+      comment:
+        author: Author
+        body: Body
+        
  
   en: English
   ja: Japanese

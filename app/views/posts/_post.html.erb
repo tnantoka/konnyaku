@@ -9,4 +9,8 @@
 <%= truncate_html(post.html(current_lang), length: @settings.post.truncate).html_safe %>
 </div>
 
+<p>
+  <%= t('comments') %> (<%= post.comments.current(current_lang).count %>)
+</p>
+
 

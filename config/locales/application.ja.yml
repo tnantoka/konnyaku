@@ -26,6 +26,8 @@ ja:
   preview: プレビュー
   realtime: リアルタイム
 
+  comments: コメント
+
   created_at: 作成日時
   updated_at: 更新日時
   ago: 前
@@ -52,6 +54,7 @@ ja:
       category: カテゴリ
       post: 投稿
       content: 内容
+      comment: コメント
     attributes:
       category:
         names: カテゴリ名
@@ -64,7 +67,10 @@ ja:
         title: タイトル
         body: 本文
         tags: タグ
-     
+      comment:
+        author: 投稿者
+        body: 本文
+  
   en: 英語
   ja: 日本語
 

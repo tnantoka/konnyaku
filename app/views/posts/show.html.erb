@@ -29,4 +29,14 @@
 
 <%= @post.html(current_lang).html_safe %>
 
-<%= render 'links' %>
+<%= render 'posts/links' %>
+
+<p>
+  <%= t('comments') %> (<%= @post.comments.current(current_lang).count %>)
+</p>
+
+<dl>
+<%= render @post.comments.current(current_lang) %>
+</dl>
+
+<%= render 'comments/form' %>

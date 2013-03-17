@@ -2,7 +2,7 @@
 
   <% if @post.errors.any? %>
     <div class="alert alert-error">
-      <h2><%= t('activerecord.errors.template.header', model: Post, count: @post.errors.count) %></h2>
+      <h2><%= t('activerecord.errors.template.header', model: Post.model_name.human, count: @post.errors.count) %></h2>
 
       <ul>
       <% @post.errors.full_messages.each do |msg| %>
