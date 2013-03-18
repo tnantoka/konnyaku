@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require google-code-prettify/prettify.js
+//= require jquery-fileupload/basic
 //= require_tree .

@@ -38,7 +38,7 @@
 <%= paginate @uploads, param_name: :p %>
 
 <% if user_signed_in? %>
-  <%= form_for(@upload, html: { class: 'form-vertical' }) do |f| %>
+  <%= form_for(@upload, html: { class: 'form-vertical js_upload_new' }) do |f| %>
 
     <% if @upload.errors.any? %>
       <div class="alert alert-error">
@@ -56,9 +56,20 @@
       <%= f.label :file, class: 'control-label' %>
       <div class="controls">
         <%= f.file_field :file %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
         <%= f.submit class: 'btn btn-primary' %>
       </div>
     </div>
+
+    <div class="row">
+      <div class="js_upload_drop span1 well">
+      </div>
+    </div>
   <% end %>
+
 <% end %>
 
