@@ -24,6 +24,9 @@ defaults: &defaults
         search: 10
       truncate: 100 
 
+    service: &service
+      analytics: false # or UA-XXX...
+
   en: 
     <<: *default
 
@@ -44,7 +47,6 @@ development:
       <<: *admin
     thanks:
       <<: *thanks
-
     post:
       <<: *post
       pagination:
@@ -52,6 +54,9 @@ development:
         admin:  2
         search: 2
       truncate: 30
+    service:
+      <<: *service
+      analytics: UA-123
 
   ja: 
     <<: *en
