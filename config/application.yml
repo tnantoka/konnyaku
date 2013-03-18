@@ -26,6 +26,17 @@ defaults: &defaults
 
     service: &service
       analytics: false # or UA-XXX...
+      ad:
+        #side: false
+        side: |
+          <div class="well"> 
+            Side ad
+          </div>
+        #bottom: false
+        bottom: |
+          <div class="well"> 
+            Bottom ad
+          </div>
 
   en: 
     <<: *default

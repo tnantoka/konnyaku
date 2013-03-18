@@ -80,6 +80,11 @@
             <%= yield %>
           </div>
           <div class="span3 sidebar">
+            <% if @settings.service.ad.side %>
+              <div class="span3 side_ad">
+                <%= @settings.service.ad.side.html_safe %>
+              </div>
+            <% end %>
             <%= render 'shared/aside' %>
           </div>
         </div>
@@ -88,6 +93,12 @@
         <%= yield %>
         <div class="row bottombar">
           <%= render 'shared/aside' %>
+        </div>
+      <% end %>
+
+      <% if @settings.service.ad.bottom %>
+        <div class="bottom_ad">
+          <%= @settings.service.ad.bottom.html_safe %>
         </div>
       <% end %>
 
