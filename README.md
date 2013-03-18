@@ -5,14 +5,13 @@ Konnyaku is minimal blog engine for multiple languages, powered by Rails 4.0 and
 [![Build Status](https://travis-ci.org/tnantoka/konnyaku.png?branch=master)](https://travis-ci.org/tnantoka/konnyaku)
 
 ## Requirements
----
+
 * Ruby 2.x
 * Ruby on Rails 4.0.beta1
 * PostgreSQL 9.x
 * [Gems](https://github.com/tnantoka/konnyaku/blob/master/Gemfile)
 
 ## Getting Started
----
 
 ### Installation
 ```
@@ -48,28 +47,28 @@ $ rails s -e production
 ```
 
 ## Demo
----
+
 Coming soon…
 
 ## Why reinventing the wheel?
----
+
 I just want to use Rails 4.0.
 
 ## Why PostgreSQL?
----
+
 I just want to use it.
 
 ## How-to
----
+
 * [Add a language](https://github.com/tnantoka/konnyaku/wiki)
 * [Change the theme](https://github.com/tnantoka/konnyaku/wiki)
 
 ## TODO
----
+
 See [issues](https://github.com/tnantoka/konnyaku/issues?state=open).
 
 ## License
----
+
 Konnyaku is released under the MIT license.
   
 &copy; 2013 [@tnantoka](https://twitter.com/tnantoka)
