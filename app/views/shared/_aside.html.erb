@@ -2,6 +2,24 @@
   <div class="well well-small">
     <ul class="nav nav-list">
       <li class="nav-header">
+        <%= link_to posts_path(format: :atom) do %>
+          <%= t(:recent_posts) %>
+          <i class="icon-rss"></i>
+        <% end %>
+      </li>
+      <li class="divider"></li>
+
+      <% @recent_posts.each do |post| %>
+      <li><%= link_to "#{post.title(current_lang)} (#{post.comments.current(current_lang).count})", post %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="span3">
+  <div class="well well-small">
+    <ul class="nav nav-list">
+      <li class="nav-header">
         <%= t(:categories) %>
       </li>
       <li class="divider"></li>

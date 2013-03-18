@@ -23,6 +23,10 @@ describe 'Posts' do
       it 'does not show admin links' do  
         expect(page).to_not have_content(I18n.t('new_post'))
       end
+      it 'returns atom feed' do
+        visit posts_path(format: :atom) 
+        expect(page).to have_content(Post.last.created_at.iso8601)
+      end
     end
  
     describe 'show' do

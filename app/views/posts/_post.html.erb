@@ -6,7 +6,7 @@
 </ul>
 
 <div>
-<%= truncate_html(post.html(current_lang), length: @settings.post.truncate).html_safe %>
+<%= truncate_body(post) %>
 </div>
 
 <p>
