@@ -81,12 +81,12 @@ private
 
   def load_posts
     @posts = Post.index(current_lang)
-    @recent_posts = @posts.limit(@settings.post.pagination.recent)
+    @recent_posts = @posts.limit(@settings.view.pagination.recent)
   end
 
   def load_tags
     @tags = Content.tags(current_lang)
-    @top_tags = @tags[0..@settings.post.pagination.recent - 1]
+    @top_tags = @tags[0..@settings.view.pagination.recent - 1]
   end
 
   def enable_sidebar 

@@ -23,7 +23,7 @@ module PostsHelper
   end
 
   def truncate_body(post)
-    return truncate_html(post.html(current_lang), length: @settings.post.truncate).html_safe 
+    return truncate_html(post.html(current_lang), length: @settings.view.truncate).html_safe 
   end
 
 end

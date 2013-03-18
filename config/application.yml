@@ -17,12 +17,13 @@ defaults: &defaults
       Rails: http://rubyonrails.org/
       Bootstrap: http://twitter.github.com/bootstrap/
 
-    post: &post
+    view: &view
       pagination:
         recent: 5
         admin:  20
         search: 10
       truncate: 100 
+      navbar_static: true
 
     service: &service
       analytics: false # or UA-XXX...
@@ -58,8 +59,8 @@ development:
       <<: *admin
     thanks:
       <<: *thanks
-    post:
-      <<: *post
+    view:
+      <<: *view
       pagination:
         recent: 2 
         admin:  2

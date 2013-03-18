@@ -34,7 +34,7 @@ private
   end
 
   def load_uploads
-    @uploads = Upload.index.page(params[:p]).per(@settings.post.pagination.admin)
+    @uploads = Upload.index.page(params[:p]).per(@settings.view.pagination.admin)
   end
 
 end
