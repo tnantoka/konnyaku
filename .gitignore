@@ -28,3 +28,4 @@ public/assets/*
 config/database.yml
 coverage
 public/uploads/*
+config/application.yml
