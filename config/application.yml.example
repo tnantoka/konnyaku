@@ -1,0 +1,60 @@
+defaults: &defaults
+
+  default: &default
+    site: &site
+      title: Konnyaku
+      description: Mmultilingual blogging
+      year: 2013
+      dot: "·"
+    
+    admin: &admin
+      username: admin
+      password: pass
+      name: Admin User
+
+    thanks: &thanks
+      Konnyaku: http://tnantoka.github.com/konnyaku/
+      Rails: http://rubyonrails.org/
+      Bootstrap: http://twitter.github.com/bootstrap/
+
+    view: &view
+      pagination:
+        recent: 5
+        search: 10
+        admin:  20
+      truncate: 100 
+      navbar_static: false
+
+    service: &service
+      analytics: false # or UA-XXX...
+      ad:
+        #side: false
+        side: |
+          <div class="well"> 
+            Side ad
+          </div>
+        #bottom: false
+        bottom: |
+          <div class="well"> 
+            Bottom ad
+          </div>
+
+  en: 
+    <<: *default
+
+  ja:
+    <<: *default
+    site:
+      <<: *site
+      description: 多言語ブログエンジン
+      dot: "-"
+
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
