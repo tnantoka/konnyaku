@@ -1,4 +1,4 @@
-<%= form_for(@post, html: { class: 'form' }) do |f| %>
+<%= form_for(@post, html: { class: '' }) do |f| %>
 
   <% if @post.errors.any? %>
     <div class="alert alert-error">
@@ -14,17 +14,8 @@
 
   <div class="row">
     <div class="span4">
-      <ul class="nav nav-pills">
-        <% @langs.each do |lang| %>
-          <li class="<%= 'active' if lang == current_lang %>">
-            <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="span4">
       <div class="control-group">
-        <%= f.label :category_id, class: 'control-label' %>
+        <%= f.label :category_id, class: 'control-label semantics' %>
         <div class="controls">
           <%= f.select :category_id, Category.all.map { |c| [c.name(current_lang), c.id] } %>
         </div>
@@ -32,13 +23,28 @@
     </div>
     <div class="span4">
       <div class="control-group">
-        <%= f.label :slug, class: 'control-label' %>
+        <%= f.label :slug, class: 'control-label semantics' %>
         <div class="controls">
+          /posts/
           <%= f.text_field :slug, placeholder: t('activerecord.attributes.post.slug') %>
         </div>
       </div>
     </div>
+    <div class="span4">
+      <div class="pull-right">
+        <%= link_to t(:preview), '#', class: 'btn js_post_preview' %>
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
   </div>
+
+  <ul class="nav nav-pills">
+    <% @langs.each do |lang| %>
+      <li class="<%= 'active' if lang == current_lang %>">
+        <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
+      </li>
+    <% end %>
+  </ul>
 
   <div class="row">
     <div class="span6">
@@ -53,21 +59,21 @@
 
               <% with_locale(content.lang.code) do %>
                 <div class="control-group">
-                  <%= cf.label :title, class: 'control-label' %>
+                  <%= cf.label :title, class: 'control-label semantics' %>
                   <div class="controls">
                     <%= cf.text_field :title, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.title'), class: 'span6' %>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <%= cf.label :body, class: 'control-label' %>
+                  <%= cf.label :body, class: 'control-label semantics' %>
                   <div class="controls">
                     <%= cf.text_area :body, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.body'), class: 'span6 js_post_body', rows: 20 %>
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <%= cf.label :tags, class: 'control-label' %>
+                  <%= cf.label :tags, class: 'control-label semantics' %>
                   <div class="controls">
                     <%= cf.text_field :tags, placeholder: t('activerecord.attributes.contents.tags'), class: 'span6', pattern: '^{.*}$' %>
                   </div>
@@ -77,22 +83,7 @@
             <% end %>
           </div>
         <% end %>
-
       </div>
-
-      <div class="control-group">
-        <div class="controls">
-          <div class="pull-right">
-            <%= link_to t(:preview), '#', class: 'btn js_post_preview' %>
-            <label class="checkbox">
-              <input type="checkbox" class="js_post_realtime"> <%= t('realtime') %>
-            </label>
-          </div>
-          <%= f.submit class: 'btn btn-primary' %>
-          <%= link_to t(:cancel), (@post.new_record? ? :posts : @post), class: 'btn' %>
-        </div>
-      </div>
-
     </div>
 
     <div class="span6">
@@ -116,6 +107,45 @@
       
     </div>
   </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= link_to t(:preview), '#', class: 'btn js_post_preview' %>
+      <span class="help-inline">
+        <label class="checkbox">
+          <input type="checkbox" class="js_post_realtime"> <%= t('realtime') %>
+        </label>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group">
+        <%= f.label :created_at, class: 'control-label' %>
+        <div class="controls datetime">
+          <%= f.datetime_select :created_at %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group">
+        <%= f.label :updated_at, class: 'control-label' %>
+        <div class="controls datetime">
+          <%= f.datetime_select :updated_at %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to t(:cancel), (@post.new_record? ? :posts : @post), class: 'btn' %>
+    </div>
+  </div>
+
+
 
 <% end %>
 

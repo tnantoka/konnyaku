@@ -59,7 +59,7 @@ private
   end
 
   def post_params
-    params.require(:post).permit(:category_id, :slug, contents_attributes: [:lang_id, :title, :body, :tags, :id])
+    params.require(:post).permit(:category_id, :slug, :created_at, :updated_at, contents_attributes: [:lang_id, :title, :body, :tags, :id])
   end
 
   def redirect_to_primary

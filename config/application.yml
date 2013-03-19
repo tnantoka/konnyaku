@@ -3,7 +3,7 @@ defaults: &defaults
   default: &default
     site: &site
       title: Konnyaku
-      description: Blogging with multi langs
+      description: Multi langs blogging
       year: 2013
       dot: ·
     
