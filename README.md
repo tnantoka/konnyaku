@@ -1,4 +1,4 @@
-# Konnyaku
+# <img src="https://raw.github.com/tnantoka/konnyaku/master/app/assets/images/icon.png" width="48" style="vertical-align: middle;" /> Konnyaku
 
 Konnyaku is minimal blog engine for multiple languages, powered by Rails 4.0 and PostgreSQL.
 
