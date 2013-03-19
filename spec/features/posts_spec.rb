@@ -7,7 +7,7 @@ describe 'Posts' do
     select(Category.default.name(current_lang)) 
     fill_in 'post[contents_attributes][0][title]', with: 'Test'
     fill_in 'post[contents_attributes][0][body]', with: 'Test'
-    click_button('Create') 
+    first(:button, 'Create').click()
   end
 
   before(:each) do
@@ -77,7 +77,7 @@ describe 'Posts' do
       context 'with blank attributes' do
         it 'disallow create new post' do
           first(:link, I18n.t('new_post')).click()
-          click_button('Create') 
+          first(:button, 'Create').click()
           expect(page).to have_content('blank')
         end
       end
@@ -88,7 +88,7 @@ describe 'Posts' do
         it 'updates post' do
           first(:link, I18n.t('edit')).click
           fill_in 'post[contents_attributes][0][title]', with: 'Edit'
-          click_button('Update') 
+          first(:button, 'Update').click()
           expect(Post.first.title(current_lang)).to eq('Edit')
         end
       end
@@ -96,7 +96,7 @@ describe 'Posts' do
         it 'disallow update post' do
           first(:link, I18n.t('edit')).click
           fill_in 'post[contents_attributes][0][title]', with: ''
-          click_button('Update') 
+          first(:button, 'Update').click()
           expect(page).to have_content('blank')
         end
       end

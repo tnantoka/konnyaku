@@ -16,11 +16,10 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'less-rails'
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
-  gem 'jquery-turbolinks'
-  gem 'jquery-fileupload-rails'
+  gem 'less-rails', '2.3.2'
+  gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', ref: '679fc6ee91b8e77e4f30625ca574c142ac3d5782'
+  gem 'jquery-fileupload-rails', '0.4.1'
+  gem 'jquery-turbolinks', '0.2.1' 
 end
 
 gem 'jquery-rails'
@@ -55,17 +54,17 @@ end
 group :test do
   gem 'capybara'
   gem 'poltergeist'
-  gem 'simplecov', :require => false
-  gem 'timecop'
+  gem 'simplecov', require: false
   gem 'launchy'
   #gem 'factory_girl_rails'
   gem 'fuubar'
+  gem 'coveralls', require: false
 end
 #gem 'mail_view'
 
-gem 'settingslogic'
-gem 'thin'
-gem 'redcarpet'
-gem 'kaminari'
-gem 'truncate_html', :git => 'git://github.com/hgmnz/truncate_html.git'
-gem 'carrierwave'
+gem 'thin', '1.5.1'
+gem 'settingslogic', '2.0.9'
+gem 'redcarpet', '2.2.2'
+gem 'kaminari', '0.14.1'
+gem 'truncate_html', git: 'git://github.com/hgmnz/truncate_html.git', ref: '37d65c8489e304267b04f16cd9b9f690b75037ee'
+gem 'carrierwave', '0.8.0' 

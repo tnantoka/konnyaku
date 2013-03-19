@@ -6,6 +6,9 @@ require 'rspec/autorun'
 require 'capybara/poltergeist'
 require 'simplecov'
 
+require 'coveralls'
+Coveralls.wear!
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -48,7 +51,6 @@ RSpec.configure do |config|
     load "#{Rails.root}/db/seeds.rb" 
   end
   config.after(:each) do
-    Timecop.return
     I18n.locale = I18n.default_locale
   end
 
@@ -58,6 +60,10 @@ RSpec.configure do |config|
 
   Capybara.javascript_driver = :poltergeist
 
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
   SimpleCov.start 'rails' do
     add_filter "_preview" # mail_preview
   end

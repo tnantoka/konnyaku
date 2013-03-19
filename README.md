@@ -3,6 +3,10 @@
 Konnyaku is minimal blog engine for multiple languages, powered by Rails 4.0 and PostgreSQL.
 
 [![Build Status](https://travis-ci.org/tnantoka/konnyaku.png?branch=master)](https://travis-ci.org/tnantoka/konnyaku)
+[![Dependency Status](https://gemnasium.com/tnantoka/konnyaku.png)](https://gemnasium.com/tnantoka/konnyaku)
+[![Coverage Status](https://coveralls.io/repos/tnantoka/konnyaku/badge.png?branch=master)](https://coveralls.io/r/tnantoka/konnyaku)
+[![Code Climate](https://codeclimate.com/github/tnantoka/konnyaku.png)](https://codeclimate.com/github/tnantoka/konnyaku)
+[![endorse](http://api.coderwall.com/tnantoka/endorsecount.png)](http://coderwall.com/tnantoka)
 
 ## Requirements
 
@@ -50,6 +54,11 @@ $ rails s -e production
 
 Coming soon…
 
+## How-to
+
+* [Add a language](https://github.com/tnantoka/konnyaku/wiki)
+* [Change the theme](https://github.com/tnantoka/konnyaku/wiki)
+
 ## Why reinventing the wheel?
 
 I just want to use Rails 4.0.
@@ -57,11 +66,6 @@ I just want to use Rails 4.0.
 ## Why PostgreSQL?
 
 I just want to use it.
-
-## How-to
-
-* [Add a language](https://github.com/tnantoka/konnyaku/wiki)
-* [Change the theme](https://github.com/tnantoka/konnyaku/wiki)
 
 ## TODO
 

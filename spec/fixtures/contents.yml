@@ -12,3 +12,11 @@ content2:
   body: ''
   html: ''
   tags: '{}'
+
+content3:
+  post: post2
+  lang_id: 1
+  title: 'abc'
+  body: 'Body'
+  html: 'Body'
+  tags: '{}'

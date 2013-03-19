@@ -54,32 +54,36 @@ class Post < ActiveRecord::Base
 
     query = query.to_s
     query.strip!
-
     return Post.none if query.blank?
 
-    queries = query.split(/[\s　]+/)
+    queries = self.split_query(query)
+    conds = self.build_conds(queries)
 
+    posts = self.index(lang).where(conds).joins(:contents).uniq
+    return posts
+  end
+
+  def self.split_query(q)
+    q.split(/[\s　]+/)
+  end
+
+  def self.build_conds(queries)
     post_table = Post.arel_table
     content_table = Content.arel_table
 
     conds = nil
-
     queries.each do |q|
       pattern = "%#{q}%"
-      cond = [post_table[:slug].matches(pattern)]
-      cond << content_table[:title].matches(pattern)
-      cond << content_table[:body].matches(pattern)
-      cond.each do |c|
-        if conds.present?
-          conds = conds.or(c)
-        else
-          conds = c
-        end 
+      likes = [
+        post_table[:slug].matches(pattern),
+        content_table[:title].matches(pattern),
+        content_table[:body].matches(pattern)
+      ] 
+      likes.each do |like|
+        conds = conds.present? ? conds.or(like) : like
       end
     end
-
-    posts = self.index(lang).where(conds).joins(:contents).uniq
-    return posts
+    return conds
   end
 
   def self.tagged(name, lang)

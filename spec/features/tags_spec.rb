@@ -19,7 +19,7 @@ describe 'Posts' do
     end
     it 'shows post title' do  
       within 'h2' do
-        expect(page).to have_content(Post.first.title(current_lang))
+        expect(page).to have_content('Title')
       end
     end
   end
