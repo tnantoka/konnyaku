@@ -18,11 +18,18 @@ class PostsController < ApplicationController
     Lang.all.each do |lang|
       content =  @post.contents.build
       content.lang = lang 
-      content.tags = {}
     end
+    stringify_tags
   end
 
   def edit
+    Lang.all.each do |lang|
+      unless @post.contents.exists?(lang_id: lang.id)
+        content =  @post.contents.build
+        content.lang = lang 
+      end
+    end
+    stringify_tags
   end
 
   def create
@@ -31,6 +38,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: I18n.t('flash.models.create', model: Post.model_name.human) 
     else
+      stringify_tags
       render action: 'new'
     end
   end
@@ -39,6 +47,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: I18n.t('flash.models.update', model: Post.model_name.human) 
     else
+      stringify_tags
       render action: 'edit'
     end
   end
@@ -59,6 +68,7 @@ private
   end
 
   def post_params
+    parse_tags
     params.require(:post).permit(:category_id, :slug, :created_at, :updated_at, contents_attributes: [:lang_id, :title, :body, :tags, :id])
   end
 
@@ -69,6 +79,18 @@ private
       else
         redirect_to edit_post_url(@post, l: Lang.primary.code)
       end
+    end
+  end
+
+  def stringify_tags
+    @post.contents.each do |content|
+      content.tags = content.tags.to_a.join(',')
+    end
+  end
+
+  def parse_tags
+    params[:post][:contents_attributes].each do |i, content|
+      params[:post][:contents_attributes][i][:tags] = "{#{content[:tags].split(/,/).map { |t| t.strip }.join(',')}}"
     end
   end
 

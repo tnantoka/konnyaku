@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
   end
 
   def tags(lang)
-    current_or_primary(lang, :tags)
+    self.contents.find_by(lang_id: lang.id).try(:tags) || []
   end
 
   def langs

@@ -40,7 +40,7 @@
 
   <ul class="nav nav-pills">
     <% @langs.each do |lang| %>
-      <li class="<%= 'active' if lang == current_lang %>">
+      <li class="<%= 'active' if lang == Lang.primary %>">
         <%= link_to t(lang.code), "##{lang.code}", data: { toggle: 'tab' } %>
       </li>
     <% end %>
@@ -52,7 +52,7 @@
       <div class="tab-content">
 
         <% @post.contents.each do |content| %>
-          <div class="tab-pane <%= 'active' if content.lang == current_lang %>" id="<%= content.lang.code %>">
+          <div class="tab-pane <%= 'active' if content.lang == Lang.primary %>" id="<%= content.lang.code %>">
             <%= f.fields_for :contents, content do |cf| %>  
 
               <%= cf.hidden_field :lang_id %>
@@ -75,7 +75,7 @@
                 <div class="control-group">
                   <%= cf.label :tags, class: 'control-label semantics' %>
                   <div class="controls">
-                    <%= cf.text_field :tags, placeholder: t('activerecord.attributes.contents.tags'), class: 'span6', pattern: '^{.*}$' %>
+                    <%= cf.text_field :tags, placeholder: "#{t('tag')}, #{t('tag')}, ...", class: 'span6' %>
                   </div>
                 </div>
               <% end %>

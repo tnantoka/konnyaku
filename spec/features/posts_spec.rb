@@ -91,6 +91,13 @@ describe 'Posts' do
           first(:button, 'Update').click()
           expect(Post.first.title(current_lang)).to eq('Edit')
         end
+        it 'updates content does not exist' do
+          first(:link, I18n.t('edit')).click
+          fill_in 'post[contents_attributes][0][title]', with: 'Edit'
+          fill_in 'post[contents_attributes][1][title]', with: '編集'
+          first(:button, 'Update').click()
+          expect(Post.first.title(Lang.find(2))).to eq('編集')
+        end
       end
       context 'with blank attributes' do
         it 'disallow update post' do
@@ -109,6 +116,41 @@ describe 'Posts' do
         first(:link, I18n.t('delete')).click
         expect(Post.last.title(current_lang)).to eq('Title')
       end
+    end
+
+    describe 'tags' do
+      it 'creates tags' do
+        first(:link, I18n.t('new_post')).click()
+        fill_in 'post[contents_attributes][0][title]', with: 'test'
+        fill_in 'post[contents_attributes][0][body]', with: 'test'
+        fill_in 'post[contents_attributes][0][tags]', with: 'a, b, c'
+        first(:button, 'Create').click()
+        expect(Post.last.tags(current_lang)).to eq(['a', 'b', 'c'])
+      end
+      it 'creates tags after validation error' do
+        first(:link, I18n.t('new_post')).click()
+        fill_in 'post[contents_attributes][0][tags]', with: 'a, b, c'
+        first(:button, 'Create').click()
+        fill_in 'post[contents_attributes][0][title]', with: 'test'
+        fill_in 'post[contents_attributes][0][body]', with: 'test'
+        first(:button, 'Create').click()
+        expect(Post.last.tags(current_lang)).to eq(['a', 'b', 'c'])
+      end 
+      it 'updates tags' do
+        first(:link, I18n.t('edit')).click
+        fill_in 'post[contents_attributes][0][tags]', with: 'Edit'
+        first(:button, 'Update').click()
+        expect(Post.first.tags(current_lang)).to eq(['Edit'])
+      end
+      it 'updates tags after validation error' do
+        first(:link, I18n.t('edit')).click
+        fill_in 'post[contents_attributes][0][title]', with: ''
+        first(:button, 'Update').click()
+        fill_in 'post[contents_attributes][0][title]', with: 'Edit'
+        fill_in 'post[contents_attributes][0][tags]', with: 'Edit'
+        first(:button, 'Update').click()
+        expect(Post.first.tags(current_lang)).to eq(['Edit'])
+      end 
     end
 
    end

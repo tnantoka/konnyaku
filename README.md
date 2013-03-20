@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/tnantoka/konnyaku/master/app/assets/images/icon.png" width="64" />
+<img src="https://raw.github.com/tnantoka/konnyaku/master/app/assets/images/icon.png" width="96" />
 
 # Konnyaku
 
