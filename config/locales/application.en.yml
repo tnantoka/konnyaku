@@ -5,6 +5,7 @@ en:
   langs: Langs
   continue: Continue reading
   search: Search
+  dashboard: Dashboard
 
   created_at: Created at
   updated_at: Updated at

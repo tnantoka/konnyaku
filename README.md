@@ -57,8 +57,9 @@ Coming soon…
 
 ## How-to
 
-* [Add a language](https://github.com/tnantoka/konnyaku/wiki)
-* [Change the theme](https://github.com/tnantoka/konnyaku/wiki)
+* [Change the theme](http://konnyaku.bornneet.com/posts/how-to-change-the-theme)
+* [Add a language](http://konnyaku.bornneet.com/posts/how-to-add-a-language)
+* [Update](http://konnyaku.bornneet.com/posts/how-to-update-blog-engine)
 
 ## Why reinventing the wheel?
 
