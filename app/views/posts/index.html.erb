@@ -11,6 +11,9 @@
     <tr>
       <td><%= link_to "#{post.title(current_lang)}", post %></td>
 
+
+      <td><%= link_to(post.category.name(current_lang), post.category) %></td>
+
       <td>
         <ul class="unstyled inline">
           <%= lang_list(post) %>
