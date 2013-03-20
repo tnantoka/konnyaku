@@ -1,0 +1,60 @@
+<div class="span3">
+  <div>
+    <h4>
+      <%= t(:recent_posts) %>
+      <small>
+        <%= link_to posts_path(format: :atom) do %>
+          <i class="icon-rss"></i>
+        <% end %>
+      </small>
+    </h4>
+    <ul class="nav nav-tabs nav-stacked">
+      <% @recent_posts.each do |post| %>
+      <li><%= link_to "#{post.title(current_lang)} (#{post.comments.current(current_lang).count})", post %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="span3">
+  <div>
+    <h4>
+      <%= t(:categories) %>
+    </h4>
+    <ul class="nav nav-tabs nav-stacked">
+      <% @categories.each do |category| %>
+      <li><%= link_to "#{category.name(current_lang)} (#{category.posts.count})", category %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="span3">
+  <div>
+    <h4>
+      <%= link_to(t(:tags), :tags) %>
+    </h4>
+    <ul class="nav nav-tabs nav-stacked">
+      <% @top_tags.each do |tag| %>
+      <li><%= link_to "#{tag[:name]} (#{tag[:count]})", tag_path(tag[:name]) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+<div class="span3">
+  <div>
+    <h4>
+      <%= t(:admin) %>
+    </h4>
+    <ul class="nav nav-tabs nav-stacked">
+      <% if user_signed_in? %>
+        <%= render 'shared/admin_menu' %>
+      <% else %>
+        <li><%= link_to t(:sign_in), :sign_in %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

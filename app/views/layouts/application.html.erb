@@ -87,14 +87,14 @@
                 <%= @settings.service.ad.side.html_safe %>
               </div>
             <% end %>
-            <%= render 'shared/aside' %>
+            <%= render aside %>
           </div>
         </div>
       <% else %>
         <%= bootstrap_flash %>
         <%= yield %>
         <div class="row">
-          <%= render 'shared/aside' %>
+          <%= render aside %>
         </div>
       <% end %>
 

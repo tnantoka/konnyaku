@@ -9,4 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def aside
+    if @settings.view.aside_stacked.present? 
+      return 'shared/aside_stacked'
+    else 
+      return 'shared/aside'
+    end
+  end
+
 end

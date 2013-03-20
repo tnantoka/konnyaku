@@ -26,6 +26,7 @@ defaults: &defaults
       truncate: 100 
       navbar_static: false
       navbar_inverse: false
+      aside_stacked: false
 
     service: &service
       analytics: false # or UA-XXX...
