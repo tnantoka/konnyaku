@@ -29,11 +29,13 @@ en:
   preview: Preview
   realtime: Realtime
   recent_posts: Recent posts
+  markdown: Markdown
 
   tags: Tags
   tag: Tag
 
   comments: Comments
+  name: Name
 
   uploads: Uploads
   list_uploads: Uploads

@@ -29,11 +29,13 @@ ja:
   preview: プレビュー
   realtime: リアルタイム
   recent_posts: 最近の投稿
+  markdown: Markdown
 
   tags: タグ
   tag: タグ
 
   comments: コメント
+  name: 名前
 
   uploads: アップロード
   list_uploads: アップロード

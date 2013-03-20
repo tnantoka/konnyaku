@@ -68,7 +68,7 @@
                 <div class="control-group">
                   <%= cf.label :body, class: 'control-label semantics' %>
                   <div class="controls">
-                    <%= cf.text_area :body, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.body'), class: 'span6 js_post_body', rows: 20 %>
+                    <%= cf.text_area :body, required: content.lang == Lang.primary, placeholder: "#{t('activerecord.attributes.contents.body')} (#{t('markdown')})", class: 'span6 js_post_body', rows: 20 %>
                   </div>
                 </div>
 

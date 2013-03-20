@@ -15,14 +15,14 @@
   <div class="control-group">
     <%= f.label :author, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :author, required: true %>
+      <%= f.text_field :author, required: true, placeholder: t('name') %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :body, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_area :body, required: true %>
+      <%= f.text_area :body, required: true, class: 'span6', placeholder: t('markdown') %>
     </div>
   </div>
 

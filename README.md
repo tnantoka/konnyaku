@@ -10,9 +10,17 @@ Konnyaku is minimal blog engine for multiple languages, powered by Rails 4.0 and
 [![Code Climate](https://codeclimate.com/github/tnantoka/konnyaku.png)](https://codeclimate.com/github/tnantoka/konnyaku)
 [![endorse](http://api.coderwall.com/tnantoka/endorsecount.png)](http://coderwall.com/tnantoka)
 
+## Features
+* Post with multi langs  
+  (Markdown)
+* File upload
+* Categorizing, Tagging
+* Search
+* Atom feed
+
 ## Requirements
 
-* Ruby 2.x
+* Ruby 2.0.x
 * Ruby on Rails 4.0.beta1
 * PostgreSQL 9.x
 * [Gems](https://github.com/tnantoka/konnyaku/blob/master/Gemfile)
@@ -34,6 +42,7 @@ production:
   username: USERNAME
   password: PASSWORD
 
+($ rake db:drop RAILS_ENV=production)
 $ rake db:create RAILS_ENV=production
 $ rake db:migrate RAILS_ENV=production
 $ rake db:seed RAILS_ENV=production
@@ -53,7 +62,7 @@ $ rails s -e production
 
 ## Demo
 
-Coming soon…
+* [Developer blog](http://konnyaku.bornneet.com/)
 
 ## How-to
 
