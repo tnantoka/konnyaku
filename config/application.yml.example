@@ -16,6 +16,7 @@ defaults: &defaults
       Konnyaku: http://tnantoka.github.com/konnyaku/
       Rails: http://rubyonrails.org/
       Bootstrap: http://twitter.github.com/bootstrap/
+      Bootswatch: http://bootswatch.com/
 
     view: &view
       pagination:

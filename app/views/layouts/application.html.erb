@@ -107,7 +107,7 @@
         <ul class="inline">
           <li><small>&copy; <%= @settings.site.year %> <%= link_to @settings.site.title, :root %></small></li>
           <% @settings.thanks.each do |text, href| %> 
-            <li><small><%= link_to text, href %></small></li>
+            <li><small><%= link_to text, href, target: '_blank' %></small></li>
           <% end %>
         </ul>
       </footer>
