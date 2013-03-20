@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(->
+  prettyPrint()
   previewPost()
   $('.js_post_realtime').prop('checked', localStorage.postRealtime == 'true')
 )
