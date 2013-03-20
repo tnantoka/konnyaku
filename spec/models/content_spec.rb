@@ -26,6 +26,14 @@ describe Content do
         }.to raise_error
       end
     end
+    context 'with duplicated title but different lang' do
+      it 'raises taken error' do
+        expect { 
+          Content.create!(lang: Lang.primary, title: 'Test', body: 'Test', tags: ['tag'])
+          Content.create!(lang: Lang.find_by(code: 'ja'), title: 'Test', body: 'Test', tags: ['tag'])
+        }.to_not raise_error
+      end
+    end
     context 'with ininvalid attributes' do
       it 'raises invalid error' do
         expect { Content.create!({}) }.to raise_error

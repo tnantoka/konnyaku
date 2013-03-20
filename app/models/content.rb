@@ -3,7 +3,7 @@ class Content < ActiveRecord::Base
   belongs_to :post
   belongs_to :lang
 
-  validates :title, uniqueness: { scode: :lang_id }, allow_blank: true
+  validates :title, uniqueness: { scope: :lang_id }, allow_blank: true
   validates_presence_of :lang_id
   validate :title_of_primary_lang_cannot_be_blank, :body_of_primary_lang_cannot_be_blank
 
