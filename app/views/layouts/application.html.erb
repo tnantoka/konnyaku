@@ -22,7 +22,7 @@
   </head>
   <body class="<%= @settings.view.navbar_static.present? ? 'navbar_static' : 'navbar_fixed' %>">
 
-    <div class="navbar <%= @settings.view.navbar_static.present? ? 'navbar-static-top' : 'navbar-fixed-top' %>">
+    <div class="navbar <%= @settings.view.navbar_static.present? ? 'navbar-static-top' : 'navbar-fixed-top' %> <%= 'navbar-inverse' if @settings.view.navbar_inverse.present? %>">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
