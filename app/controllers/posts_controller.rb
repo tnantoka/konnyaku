@@ -29,6 +29,7 @@ class PostsController < ApplicationController
         content.lang = lang 
       end
     end
+    @post.updated_at = Time.now
     stringify_tags
   end
 
