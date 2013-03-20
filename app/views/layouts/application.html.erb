@@ -65,6 +65,7 @@
 
             <%= form_for @search_form, url: :search, html: { method: :get, class: "navbar-search pull-right" } do |f| %>
               <%= f.search_field :q, class: 'search-query span2', placeholder: t('search') %>
+              <%= hidden_field_tag :l, current_lang.code %> 
             <% end %>
 
           </div>
