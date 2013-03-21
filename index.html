@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Konnyaku by tnantoka</title>
+    <title>Konnyaku · Multilingual blog with Rails 4.0</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
@@ -15,69 +14,94 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
   </head>
   <body>
       <div id="header">
         <nav>
           <li class="fork"><a href="https://github.com/tnantoka/konnyaku">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/tnantoka/konnyaku/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/tnantoka/konnyaku/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
+          <li class="title">PLEASE FORK ME!</li>
         </nav>
       </div><!-- end header -->
 
     <div class="wrapper">
 
       <section>
-        <div id="title">
-          <h1>Konnyaku</h1>
+        <div class="title">
+          <h1>
+            <img src="https://raw.github.com/tnantoka/konnyaku/master/app/assets/images/icon.png" />
+            Konnyaku
+          </h1>
           <p>Konnyaku is minimal blogging engine for multiple languages, powered by Rails 4.0 and PostgreSQL. </p>
-          <hr>
+
+          <p>
+            <a href="https://travis-ci.org/tnantoka/konnyaku"><img src="https://travis-ci.org/tnantoka/konnyaku.png?branch=master" /></a>
+            <a href="https://gemnasium.com/tnantoka/konnyaku"><img src="https://gemnasium.com/tnantoka/konnyaku.png" /></a>
+            <a href="https://coveralls.io/r/tnantoka/konnyaku"><img src="https://coveralls.io/repos/tnantoka/konnyaku/badge.png?branch=master" /></a>
+            <a href="https://codeclimate.com/github/tnantoka/konnyaku"><img src="https://codeclimate.com/github/tnantoka/konnyaku.png" /></a>
+            <a href="http://coderwall.com/tnantoka"><img src="https://a248.e.akamai.net/camo.github.com/0d88936ce14e60f5c385605abb33d01abe5a109f/687474703a2f2f6170692e636f64657277616c6c2e636f6d2f746e616e746f6b612f656e646f727365636f756e742e706e67" /></a>
+          </p>
+
+          <hr />
+        </div>
+
+        <div class="header">
+          <nav>
+            <li><a href="">Live Demo</a></li>
+            <li><a href="http://konnyaku.bornneet.com/">Developer Blog</a></li>
+          </nav>
+          <hr />
+        </div>
+
+        <h2>- Getting Started -</h2>
+
+        <h3># Installation</h3>
+        <pre><code>$ git clone git://github.com/tnantoka/konnyaku.git YOUR_BLOG
+$ cd YOUR_BLOG/
+$ bundle --without test development</code></pre>
+
+        <h3># Database setup</h3>
+        <pre><code>$ cp config/database.yml.example config/database.yml
+$ YOUR_EDITOR config/database.yml
+production:
+  username: USERNAME
+  password: PASSWORD
+
+$ rake db:create RAILS_ENV=production
+$ rake db:migrate RAILS_ENV=production
+$ rake db:seed RAILS_ENV=production</code></pre>
+
+        <h3># Configuration</h3>
+        <pre><code>$ cp config/application.yml.example config/application.yml
+$ YOUR_EDITOR config/application.yml</code></pre>
+
+        <h3># Run</h3>
+        <pre><code>$ rake assets:precompile
+$ rails s -e production</code></pre>
+
+        <div class="title">
+          <hr />
           <span class="credits left">Project maintained by <a href="https://github.com/tnantoka">tnantoka</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
 
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
 
     </div>
+
+
+
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-39497178-2");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-39497178-2");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
 
   </body>
 </html>
