@@ -5,3 +5,18 @@
   <h1><%= title %></h1>
 </div>
 
+<ul class="unstyled">
+  <li>
+    <%= t('post_count') %>
+    <%= Post.count %> 
+  </li>
+
+  <li>
+    <%= t('comment_count') %>
+    <%= Comment.count %>
+  </li>
+</ul>
+
+<ul class="unstyled">
+<%= render 'shared/admin_menu' %>
+</ul>

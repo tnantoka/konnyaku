@@ -7,6 +7,9 @@ ja:
   search: 検索
   dashboard: ダッシュボード
 
+  post_count: 投稿数
+  comment_count: コメント数
+
   created_at: 作成日時
   updated_at: 更新日時
   ago: 前

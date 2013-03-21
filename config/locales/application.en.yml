@@ -6,6 +6,9 @@ en:
   continue: Continue reading
   search: Search
   dashboard: Dashboard
+  
+  post_count: Post count
+  comment_count: Comment count
 
   created_at: Created at
   updated_at: Updated at
