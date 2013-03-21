@@ -83,7 +83,7 @@
           </div>
           <div class="span3">
             <% if @settings.service.ad.side %>
-              <div class="span3 side_ad">
+              <div class="span3 text-center">
                 <%= @settings.service.ad.side.html_safe %>
               </div>
             <% end %>
@@ -99,7 +99,7 @@
       <% end %>
 
       <% if @settings.service.ad.bottom %>
-        <div class="bottom_ad">
+        <div class="text-center">
           <%= @settings.service.ad.bottom.html_safe %>
         </div>
       <% end %>
