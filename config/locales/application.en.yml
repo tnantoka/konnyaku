@@ -36,6 +36,8 @@ en:
 
   comments: Comments
   name: Name
+  recent_comments: Recent comments
+  comment: "%{author} on %{post}"
 
   uploads: Uploads
   list_uploads: Uploads

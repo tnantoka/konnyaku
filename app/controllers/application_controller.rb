@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :load_langs
   before_action :load_posts
   before_action :load_tags
+  before_action :load_comments
   before_action :enable_sidebar
 
 private
@@ -87,6 +88,10 @@ private
   def load_tags
     @tags = Content.tags(current_lang)
     @top_tags = @tags[0..@settings.view.pagination.recent - 1]
+  end
+
+  def load_comments
+    @comments = Comment.index(current_lang).limit(@settings.view.pagination.recent)
   end
 
   def enable_sidebar 

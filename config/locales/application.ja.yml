@@ -36,6 +36,8 @@ ja:
 
   comments: コメント
   name: 名前
+  recent_comments: 最近のコメント
+  comment: "%{post}に%{author}さんから"
 
   uploads: アップロード
   list_uploads: アップロード

@@ -46,6 +46,20 @@
   </div>
 </div>
 
+<div class="span3">
+  <div class="well well-small">
+    <ul class="nav nav-list">
+      <li class="nav-header">
+        <%= t(:recent_comments) %>
+      </li>
+      <li class="divider"></li>
+
+      <% @comments.each do |comment| %>
+      <li><%= link_to t('comment', post: comment.post.title(current_lang), author: comment.author), comment.post %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
 <div class="span3">
   <div class="well well-small">

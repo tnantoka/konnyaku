@@ -9,6 +9,11 @@ class Comment < ActiveRecord::Base
 
   scope :current, -> lang { where(lang_id: lang.id) }
 
+  scope :index, -> lang { 
+    where(lang_id: lang.id)
+    .order('created_at DESC')
+  } 
+
 private
   def render
     renderer = HTMLWithPrettify.new(
