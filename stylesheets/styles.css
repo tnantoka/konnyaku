@@ -847,3 +847,8 @@ h2,
 h3 {
   text-align: center;
 }
+
+a {
+  outline: none !important;
+}
+
