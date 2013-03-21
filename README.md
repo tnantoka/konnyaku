@@ -82,6 +82,10 @@ I just want to use it.
 
 See [issues](https://github.com/tnantoka/konnyaku/issues?state=open).
 
+## Contributors
+
+Be the first :-)
+
 ## License
 
 Konnyaku is released under the MIT license.

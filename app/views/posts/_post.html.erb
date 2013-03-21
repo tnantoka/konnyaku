@@ -1,4 +1,4 @@
-<h2><%= link_to(post.title(current_lang), post) %></h2>
+<h2><%= link_to(highlight_queries(post.title(current_lang)), post) %></h2>
 
 <ul class="unstyled inline">
   <li><%= time_ago(post.created_at) %></li>
@@ -6,7 +6,7 @@
 </ul>
 
 <div>
-<%= truncate_body(post) %>
+<%= truncate(highlight_queries(post.html(current_lang))) %>
 </div>
 
 <p>

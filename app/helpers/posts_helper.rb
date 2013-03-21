@@ -22,8 +22,12 @@ module PostsHelper
     return "<span title=\"#{l(date)}\">#{time_ago_in_words(date)}#{t(:ago)}</span>".html_safe
   end
 
-  def truncate_body(post)
-    return truncate_html(post.html(current_lang), length: @settings.view.truncate).html_safe 
+  def truncate(text)
+    return truncate_html(text, length: @settings.view.truncate).html_safe 
+  end
+
+  def highlight_queries(text)
+    return highlight(text, Post.split_query(@search_form.q))
   end
 
 end

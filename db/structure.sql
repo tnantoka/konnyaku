@@ -43,37 +43,6 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: attachments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE attachments (
-    id integer NOT NULL,
-    file character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: attachments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE attachments_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: attachments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE attachments_id_seq OWNED BY attachments.id;
-
-
---
 -- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -283,13 +252,6 @@ ALTER SEQUENCE uploads_id_seq OWNED BY uploads.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY attachments ALTER COLUMN id SET DEFAULT nextval('attachments_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
 
 
@@ -326,14 +288,6 @@ ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regcl
 --
 
 ALTER TABLE ONLY uploads ALTER COLUMN id SET DEFAULT nextval('uploads_id_seq'::regclass);
-
-
---
--- Name: attachments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY attachments
-    ADD CONSTRAINT attachments_pkey PRIMARY KEY (id);
 
 
 --
@@ -443,7 +397,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130312142546');
 INSERT INTO schema_migrations (version) VALUES ('20130312142748');
 
 INSERT INTO schema_migrations (version) VALUES ('20130317060933');
-
-INSERT INTO schema_migrations (version) VALUES ('20130317093304');
 
 INSERT INTO schema_migrations (version) VALUES ('20130317094147');

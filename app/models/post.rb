@@ -64,6 +64,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.split_query(q)
+    return [] if q.blank?
     q.split(/[\s　]+/)
   end
 
