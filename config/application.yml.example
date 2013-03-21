@@ -3,7 +3,7 @@ defaults: &defaults
   default: &default
     site: &site
       title: Konnyaku
-      description: Mmultilingual blogging
+      description: Multilingual blogging
       year: 2013
       dot: "·"
     
