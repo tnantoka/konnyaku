@@ -50,6 +50,8 @@ ja:
   version: バージョン
   back_to_histories: 履歴一覧に戻る
   back_to_post: 投稿に戻る
+  body: 本文
+  diff: 差分
 
   flash:
     sessions:

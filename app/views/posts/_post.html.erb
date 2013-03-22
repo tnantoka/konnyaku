@@ -1,4 +1,6 @@
-<h2><%= link_to(highlight_queries(post.title(current_lang)), post) %></h2>
+<div class="page-header">
+  <h2><%= link_to(highlight_queries(post.title(current_lang)), post) %></h2>
+</div>
 
 <ul class="unstyled inline">
   <li><%= time_ago(post.created_at) %></li>
@@ -13,4 +15,4 @@
   <%= t('comments') %> (<%= post.comments.current(current_lang).count %>)
 </p>
 
-
+<hr />

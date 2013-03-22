@@ -42,8 +42,8 @@
   </tbody>
 </table>
 
-<%= render 'links' %>
-
 <%= page_entries_info(@paginated_posts, entry_name: Post.model_name.human) %>
 <%= paginate @paginated_posts, param_name: :p %>
+
+<%= render 'links' %>
 

@@ -35,6 +35,8 @@
 <%= paginate @uploads, param_name: :p %>
 
 <% if user_signed_in? %>
+  <hr />
+  
   <%= form_for(@upload, html: { class: 'form-vertical js_upload_new' }) do |f| %>
 
     <% if @upload.errors.any? %>

@@ -14,5 +14,6 @@
  * require google-code-prettify/styles/sunburst.css
  * require google-code-prettify/styles/sons-of-obsidian.css
  * require google-code-prettify/styles/doxy.css
+ *= require diffy.css
  *= require_tree .
  */

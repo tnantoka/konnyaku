@@ -50,6 +50,10 @@ en:
   version: Version
   back_to_histories: Back to Histories
   back_to_post: Back to Post
+  view: View
+  diff: Diff
+
+
 
 
   flash:
