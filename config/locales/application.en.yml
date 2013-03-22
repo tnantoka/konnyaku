@@ -55,6 +55,8 @@ en:
       update: "%{model} was successfully updated."
       create: "%{model} was successfully created."
       destroy: "%{model} was successfully deleted."
+    uploads:
+      disabled: "File upload is disabled"
 
   activemodel:
     attributes:

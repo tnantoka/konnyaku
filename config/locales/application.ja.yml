@@ -55,6 +55,8 @@ ja:
       update: "%{model}は正常に更新されました。"
       create: "%{model}は正常に作成されました。"
       destroy: "%{model}は正常に削除されました。"
+    uploads:
+      disabled: "アップロードは無効に設定されています"
 
   activemodel:
     attributes:

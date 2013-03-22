@@ -43,6 +43,14 @@ describe 'Uploads' do
         expect(page).to_not have_content('rails.png')
       end
     end
+    describe 'disabled' do
+      it 'disallows access' do
+        Settings.en.admin[:upload] = false
+        visit uploads_path
+        expect(page).to have_content(I18n.t('flash.uploads.disabled'))
+        Settings.en.admin[:upload] = true
+      end
+    end
   end
 
 end

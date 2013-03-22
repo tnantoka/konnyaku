@@ -3,6 +3,7 @@ class UploadsController < ApplicationController
   before_action :sign_in_required, except: [:index]
   before_action :set_upload, only: [:destroy]
   before_action :load_uploads, only: [:index]
+  before_action :disable_upload
 
   def index
     @upload = Upload.new
@@ -35,6 +36,12 @@ private
 
   def load_uploads
     @uploads = Upload.index.page(params[:p]).per(@settings.view.pagination.admin)
+  end
+
+  def disable_upload
+    unless @settings.admin.upload.present?
+      redirect_to :dashboard, alert: I18n.t('flash.uploads.disabled')
+    end
   end
 
 end

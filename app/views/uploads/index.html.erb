@@ -5,34 +5,31 @@
   <h1><%= title %></h1>
 </div>
 
-<table class="table-condensed <%= 'table table-striped table-hover' if user_signed_in? %>">
-  <tbody>
-    <% @uploads.each do |upload| %>
-    <tr>
-      <td>
-        <% if upload.is_image? %>
-          <%= link_to upload.src do %>
-            <%= image_tag upload.src %>
-          <% end %>
-        <% else %>
-          &nbsp;
-        <% end %>
-      </td>
-      <td><%= link_to upload.filename, upload.src %></td>
-    
+
+<ul class="media-list">
+
+  <% @uploads.each do |upload| %>
+  <li class="media">
+    <%= link_to upload.src, class: 'pull-left' do %>
+      <% if upload.is_image? %>
+        <%= image_tag upload.src, class: 'media-object img-polaroid', width: '64' %>
+      <% else %>
+        <%= image_tag 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', class: 'media-object img-polaroid', size: '64x64' %>
+      <% end %>
+    <% end %>
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to upload.filename, upload.src %> <small><%= time_ago(upload.created_at) %></small></h4>
       <% if user_signed_in? %>
-      <td>
         <%= link_to upload, method: :delete, data: { confirm: t(:sure) }, class: 'btn btn-danger btn-small', title: t(:delete) do %>
           <i class="icon-remove"></i>
           <%= t(:delete) %>
         <% end %>
-      </td>
       <% end %>
+    </div>
+  </li>
+  <% end %>
 
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+</ul>
 
 <%= page_entries_info(@uploads, entry_name: Upload.model_name.human) %>
 <%= paginate @uploads, param_name: :p %>

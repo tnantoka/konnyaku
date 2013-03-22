@@ -11,6 +11,7 @@ defaults: &defaults
       username: admin
       password: pass
       name: Admin User
+      upload: true
 
     thanks: &thanks
       Konnyaku: http://tnantoka.github.com/konnyaku/
