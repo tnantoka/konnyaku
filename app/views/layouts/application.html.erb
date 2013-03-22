@@ -76,6 +76,7 @@
     <div class="container">
 
       <% if @has_sidebar.present? %>
+
         <div class="row">
           <div class="span9">
             <%= bootstrap_flash %>
@@ -90,12 +91,16 @@
             <%= render aside %>
           </div>
         </div>
+
       <% else %>
+
         <%= bootstrap_flash %>
         <%= yield %>
+        <hr />
         <div class="row">
           <%= render aside %>
         </div>
+
       <% end %>
 
       <% if @settings.service.ad.bottom %>
@@ -105,6 +110,8 @@
       <% end %>
 
       <footer>
+        <hr />
+
         <ul class="inline">
           <li><small>&copy; <%= @settings.site.year %> <%= link_to @settings.site.title, :root %></small></li>
           <% @settings.thanks.each do |text, href| %> 
