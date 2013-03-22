@@ -45,6 +45,12 @@ ja:
   uploads: アップロード
   list_uploads: アップロード
 
+  histories: 履歴一覧
+  history: 履歴
+  version: バージョン
+  back_to_histories: 履歴一覧に戻る
+  back_to_post: 投稿に戻る
+
   flash:
     sessions:
       sign_in: ログインしました。
@@ -71,6 +77,7 @@ ja:
       content: 内容
       comment: コメント
       upload: アップロード
+      version: 履歴
     attributes:
       category:
         names: カテゴリ名

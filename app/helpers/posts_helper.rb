@@ -18,8 +18,12 @@ module PostsHelper
     return list.html_safe
   end
 
-  def time_ago(date)
-    return "<span title=\"#{l(date)}\">#{time_ago_in_words(date)}#{t(:ago)}</span>".html_safe
+  def time_ago(date, plain: false)
+    if plain
+      return "#{time_ago_in_words(date)}#{t(:ago)}"
+    else
+      return "<span title=\"#{l(date)}\">#{time_ago_in_words(date)}#{t(:ago)}</span>".html_safe
+    end
   end
 
   def truncate(text)

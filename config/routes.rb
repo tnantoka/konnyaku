@@ -18,6 +18,7 @@ Konnyaku::Application.routes.draw do
   resources :posts do
     post :markdown, on: :collection
     resources :comments, only: [:create, :destroy]
+    resources :versions, only: [:index, :show]
   end
   resources :tags, only: [:index, :show]
 

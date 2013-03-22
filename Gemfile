@@ -17,7 +17,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'less-rails', '2.3.2'
-  gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', ref: '679fc6ee91b8e77e4f30625ca574c142ac3d5782'
+  gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', ref: '679fc6ee91'
   gem 'jquery-fileupload-rails', '0.4.1'
   gem 'jquery-turbolinks', '0.2.1' 
 end
@@ -66,5 +66,6 @@ gem 'thin', '1.5.1'
 gem 'settingslogic', '2.0.9'
 gem 'redcarpet', '2.2.2'
 gem 'kaminari', '0.14.1'
-gem 'truncate_html', git: 'git://github.com/hgmnz/truncate_html.git', ref: '37d65c8489e304267b04f16cd9b9f690b75037ee'
+gem 'truncate_html', git: 'git://github.com/hgmnz/truncate_html.git', ref: '37d65c8489'
 gem 'carrierwave', '0.8.0' 
+gem 'paper_trail', git: 'git://github.com/airblade/paper_trail.git', ref: '009d3bd4a3'

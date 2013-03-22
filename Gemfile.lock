@@ -1,14 +1,23 @@
 GIT
+  remote: git://github.com/airblade/paper_trail.git
+  revision: 009d3bd4a371f6c93c765fb4ee754ed98608437e
+  ref: 009d3bd4a3
+  specs:
+    paper_trail (2.7.1)
+      activerecord (>= 4.0.0.beta, < 5.0)
+      railties (>= 4.0.0.beta, < 5.0)
+
+GIT
   remote: git://github.com/hgmnz/truncate_html.git
   revision: 37d65c8489e304267b04f16cd9b9f690b75037ee
-  ref: 37d65c8489e304267b04f16cd9b9f690b75037ee
+  ref: 37d65c8489
   specs:
     truncate_html (0.9.2)
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 679fc6ee91b8e77e4f30625ca574c142ac3d5782
-  ref: 679fc6ee91b8e77e4f30625ca574c142ac3d5782
+  ref: 679fc6ee91
   specs:
     twitter-bootstrap-rails (2.2.6)
       actionpack (>= 3.1)
@@ -237,6 +246,7 @@ DEPENDENCIES
   kaminari (= 0.14.1)
   launchy
   less-rails (= 2.3.2)
+  paper_trail!
   pg
   poltergeist
   pry-rails

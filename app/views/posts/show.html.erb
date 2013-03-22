@@ -35,6 +35,12 @@
 
 <%= @post.html(current_lang).html_safe %>
 
+<% if @post.versions(current_lang).present? %>
+<p>
+  <%= link_to(t('histories'), post_versions_path(@post)) %>
+</p>
+<% end %>
+
 <%= render 'posts/links' %>
 
 <div class="row">

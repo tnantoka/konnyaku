@@ -37,9 +37,14 @@ class Post < ActiveRecord::Base
   def html(lang)
     current_or_primary(lang, :html)
   end
-
+  
   def tags(lang)
     self.contents.find_by(lang_id: lang.id).try(:tags) || []
+  end
+
+  def versions(lang)
+    versions = self.contents.find_by(lang_id: lang.id).try(:versions) || Version.none
+    return versions.where.not(object: nil)
   end
 
   def langs

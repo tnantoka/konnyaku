@@ -45,6 +45,13 @@ en:
   uploads: Uploads
   list_uploads: Uploads
 
+  histories: Histories
+  history: History
+  version: Version
+  back_to_histories: Back to Histories
+  back_to_post: Back to Post
+
+
   flash:
     sessions:
       sign_in: Signed in successfully.
@@ -71,6 +78,7 @@ en:
       content: Content
       comment: Comment
       upload: Upload
+      version: Version
     attributes:
       category:
         names: Names

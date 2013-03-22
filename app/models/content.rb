@@ -10,6 +10,8 @@ class Content < ActiveRecord::Base
   before_validation :render
   default_scope -> { self.order(:lang_id) }
 
+  has_paper_trail
+
   def title_of_primary_lang_cannot_be_blank
     self.errors.add(:title, :blank) if self.lang == Lang.primary && self.title.blank?
   end

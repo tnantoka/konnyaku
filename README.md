@@ -13,6 +13,7 @@ Konnyaku is minimal blog engine for multiple languages, powered by Rails 4.0 and
 ## Features
 * Post with multi langs  
   (Markdown)
+* Histories
 * File upload
 * Categorizing, Tagging
 * Search
