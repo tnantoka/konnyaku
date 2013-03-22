@@ -6,6 +6,9 @@ $(->
   prettyPrint()
   previewPost()
   $('.js_post_realtime').prop('checked', localStorage.postRealtime == 'true')
+
+  twttr.widgets.load() if window.twttr
+  FB.XFBML.parse() if window.FB
 )
 
 $(document).on('click', '.js_post_preview', (e) ->
