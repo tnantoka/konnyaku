@@ -784,7 +784,7 @@ nav li.title {
 
 section {
   max-width: 650px;
-  padding: 30px 0px 50px 0px;
+  padding: 30px 0px 10px 0px;
   margin: 20px 0;
   margin-top: 0;
 }
@@ -852,3 +852,7 @@ a {
   outline: none !important;
 }
 
+.ad {
+  text-align: center;
+  margin-bottom: 10px;
+}
