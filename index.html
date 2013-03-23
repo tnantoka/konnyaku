@@ -82,9 +82,7 @@ production:
   username: USERNAME
   password: PASSWORD
 
-$ rake db:create RAILS_ENV=production
-$ rake db:migrate RAILS_ENV=production
-$ rake db:seed RAILS_ENV=production</code></pre>
+$ RAILS_ENV=production rake db:drop db:create db:migrate db:seed</code></pre>
 
         <h3># Configuration</h3>
         <pre><code>$ cp config/application.yml.example config/application.yml
