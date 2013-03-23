@@ -18,6 +18,7 @@ Konnyaku is minimal blog engine for multiple languages, powered by Rails 4.0 and
 * Categorizing, Tagging
 * Search
 * Atom feed
+* Based on Twitter bootstrap
 
 ## Requirements
 
