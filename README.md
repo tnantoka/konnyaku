@@ -63,13 +63,14 @@ $ rails s -e production
 
 ## Demo
 
-* [Developer blog](http://konnyaku.bornneet.com/)
+* [Live demo](http://demo.konnyaku.tobioka.net/)
+* [Developer blog](http://konnyaku.tobioka.net/)
 
 ## How-to
 
-* [Change the theme](http://konnyaku.bornneet.com/posts/how-to-change-the-theme)
-* [Add a language](http://konnyaku.bornneet.com/posts/how-to-add-a-language)
-* [Update](http://konnyaku.bornneet.com/posts/how-to-update-blog-engine)
+* [Change the theme](http://konnyaku.tobioka.net/posts/how-to-change-the-theme)
+* [Add a language](http://konnyaku.tobioka.net/posts/how-to-add-a-language)
+* [Update](http://konnyaku.tobioka.net/posts/how-to-update-blog-engine)
 
 ## Why reinventing the wheel?
 
