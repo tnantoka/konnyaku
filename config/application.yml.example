@@ -11,6 +11,8 @@ defaults: &defaults
       username: admin
       password: pass
       name: Admin User
+      link: ''
+      email: ''
       upload: true
 
     thanks: &thanks
