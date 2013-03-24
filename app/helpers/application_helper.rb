@@ -17,4 +17,15 @@ module ApplicationHelper
     end
   end
 
+  def gravatar(email)
+    return '' if email.blank?
+    md5 = Digest::MD5.hexdigest(email)
+    image_tag("http://www.gravatar.com/avatar/#{md5}?s=48", alt: '')
+  end
+
+  def author
+    img = gravatar(@settings.admin.email) 
+    "#{img} #{@settings.admin.name}".html_safe
+  end
+
 end

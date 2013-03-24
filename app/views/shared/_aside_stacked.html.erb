@@ -1,6 +1,23 @@
 <div class="span3">
   <div>
     <h4>
+      <%= t(:author) %>
+    </h4>
+    <ul class="nav nav-tabs nav-stacked">
+      <li>
+        <% if @settings.admin.link.present? %>    
+          <%= link_to author, @settings.admin.link, target: '_blank' %>
+        <% else %>
+          <%= author %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="span3">
+  <div>
+    <h4>
       <%= t(:recent_posts) %>
       <small>
         <%= link_to posts_path(format: :atom) do %>
