@@ -61,7 +61,7 @@
                 <div class="control-group">
                   <%= cf.label :title, class: 'control-label semantics' %>
                   <div class="controls">
-                    <%= cf.text_field :title, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.title'), class: 'span6' %>
+                    <%= cf.text_field :title, required: content.lang == Lang.primary, placeholder: t('activerecord.attributes.contents.title'), class: 'span6 js_post_title' %>
                   </div>
                 </div>
 
@@ -75,9 +75,18 @@
                 <div class="control-group">
                   <%= cf.label :tags, class: 'control-label semantics' %>
                   <div class="controls">
-                    <%= cf.text_field :tags, placeholder: "#{t('tag')}, #{t('tag')}, ...", class: 'span6' %>
+                    <%= cf.text_field :tags, placeholder: "#{t('tag')}, #{t('tag')}, ...", class: 'span6 js_post_tags' %>
                   </div>
                 </div>
+
+                <% if content.lang != Lang.primary %>
+                <div class="control-group">
+                  <div class="controls">
+                    <%= link_to t(:copy, lang: t(Lang.primary.code)), '#', class: 'btn js_post_copy' %>
+                  </div>
+                </div>
+                <% end %>
+
               <% end %>
 
             <% end %>
