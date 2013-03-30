@@ -70,3 +70,4 @@ gem 'truncate_html', git: 'git://github.com/hgmnz/truncate_html.git', ref: '37d6
 gem 'carrierwave', '0.8.0' 
 gem 'paper_trail', git: 'git://github.com/airblade/paper_trail.git', ref: '009d3bd4a3'
 gem 'diffy', '2.1.3'
+gem 'arigato_rails'
