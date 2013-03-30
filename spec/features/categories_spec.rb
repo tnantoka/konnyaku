@@ -35,6 +35,9 @@ describe 'Categories' do
           expect(page).to have_content(Category.first.name(current_lang))
         end
       end
+      it 'shows entries' do
+        expect(page).to have_content(Category.first.posts.first.title(current_lang))
+      end
     end
 
     describe 'edit' do

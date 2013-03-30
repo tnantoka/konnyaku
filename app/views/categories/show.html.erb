@@ -5,4 +5,9 @@
   <h1><%= title %></h1>
 </div>
 
+<%= render @paginated_posts %>
+
+<%= page_entries_info(@paginated_posts, entry_name: Post.model_name.human) %>
+<%= paginate @paginated_posts, param_name: :p %>
+
 <%= render 'links' %>

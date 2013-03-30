@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @paginated_posts = @category.posts.page(params[:p]).per(@settings.view.pagination.recent)
   end
 
   def new
