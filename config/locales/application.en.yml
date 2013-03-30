@@ -34,6 +34,7 @@ en:
   realtime: Realtime
   recent_posts: Recent posts
   markdown: Markdown
+  copy: "Copy form %{lang}"
 
   tags: Tags
   tag: Tag

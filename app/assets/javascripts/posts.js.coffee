@@ -11,6 +11,18 @@ $(->
   FB.XFBML.parse() if window.FB
 )
 
+$(document).on('click', '.js_post_copy', (e) ->
+
+  $tabPane = $(this).parents('.tab-pane')
+
+  $tabPane.find('.js_post_title:eq(0)').val($('.js_post_title:eq(0)').val())
+  $tabPane.find('.js_post_body:eq(0)').val($('.js_post_body:eq(0)').val())
+  $tabPane.find('.js_post_tags:eq(0)').val($('.js_post_tags:eq(0)').val())
+
+  e.preventDefault()
+  previewPost()
+)
+
 $(document).on('click', '.js_post_preview', (e) ->
   e.preventDefault()
   previewPost()
