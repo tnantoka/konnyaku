@@ -117,6 +117,7 @@
           <% @settings.thanks.each do |text, href| %> 
             <li><small><%= link_to text, href, target: '_blank' %></small></li>
           <% end %>
+          <li><small><%= link_to 'Special Thanks', main_app.thanks_path %></small></li>
         </ul>
       </footer>
 
