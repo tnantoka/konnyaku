@@ -1,4 +1,4 @@
-<% title = @category.name(current_lang) %>
+<% title = "#{@category.name(current_lang)} #{@settings.site.dot} #{t(:categories)}" %>
 <% content_for(:title) { title } %>
 
 <div class="page-header">
