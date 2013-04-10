@@ -41,7 +41,7 @@ describe 'Welcome' do
       end
     end
  
-    context 'with valid params[:l]' do
+    context 'with invalid params[:l]' do
       it 'uses "en" locale' do
         visit root_path(:l => 'aa')
         I18n.locale = 'en'
