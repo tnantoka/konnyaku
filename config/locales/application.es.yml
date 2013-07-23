@@ -1,0 +1,108 @@
+es:
+  admin: Admin
+  sign_in: Iniciar sessi&ocaute;n
+  sign_out: Cerrar sesi&oacute;n
+  langs: Idiomas
+  continue: Continuar leyendo
+  search: Buscar
+  dashboard: Dashboard
+  author: Autor
+
+  post_count: Numero de entradas
+  comment_count: N&uacute;mero de comentarios
+
+  created_at: Creado en
+  updated_at: Actualizado en
+  ago: " atr&aacute;s"
+
+  cancel: Cancelar
+  sure: &iquest;Est&aacute;s seguro?
+  edit: Editar
+  delete: Eliminar
+  loading: Cargando
+
+  categories: Categor&iacute;as
+  list_categories: Categor&iacute;as
+  edit_category: Editar categor&iacute;as
+  new_category: Nueva categor&iacute;a
+
+  posts: Entradas
+  list_posts: Entradas
+  new_post: Nueva entrada
+  edit_post: Editar entrada
+  preview: Previsualizar
+  realtime: Tiempo real
+  recent_posts: Entradas recientes
+  markdown: Markdown
+  copy: "Copiar de %{lang}"
+
+  tags: Etiquetas
+  tag: Etiqueta
+
+  comments: Comentarios
+  name: Nombre
+  recent_comments: Comentarios recientes
+  comment: "%{author} en %{post}"
+
+  uploads: Subidas
+  list_uploads: Subidas
+
+  histories: Historiales
+  history: Historial
+  version: Versi&oacute;n
+  back_to_histories: Volver a historiales
+  back_to_post: Volver a entradas
+  view: Vista
+  diff: Diferencias
+
+  flash:
+    sessions:
+      sign_in: Sesi&oacute;n iniciada con &eacute;xito.
+      sign_out: Sesi&oacute;n cerrada con &eacute;xito.
+      invalid: Usuario o contrase&ntilde;a inv&aacute;lida. 
+      unauthenticated: Es necesario iniciar la sesi&oacute;n o registrarse para continuar.
+    models:
+      update: "%{model} se ha actualizado con &eacute;xito."
+      create: "%{model} se ha creado con &eacute;xito."
+      destroy: "%{model} se ha eliminado con &eacute;xito."
+    uploads:
+      disabled: "La subida de ficheros esta deshabilitada"
+
+  activemodel:
+    attributes:
+      sign_in_form:
+        username: Usuario
+        password: Contrase&ntilde;a
+
+  activerecord:
+    models:
+      category: Categor&iacute;a
+      post: Entrada
+      content: Contenido
+      comment: Comentario
+      upload: Subir
+      version: Versi&ocaute;n
+    attributes:
+      category:
+        names: Nombres
+        slug: URL amigable
+      post:
+        category_id: Categor&iacute;a
+        slug: URL amigable
+        contents: Contenidos
+        comment: Comentario
+      contents:
+        title: T&iacute;tulo
+        body: Cuerpo
+        tags: Etiquetas
+      comment:
+        author: Autor
+        body: Cuerpo
+      upload:
+        file: Fichero
+
+  en: Ingl&eacte;s
+  es: Castellano
+  ja: Japon&eacute;s
+
+
